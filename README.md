@@ -1,6 +1,6 @@
-**Clone Laravel Project
+Clone Laravel Project
 
-<br><br>1.Run git clone <my-cool-project>
+<br>1.Run git clone <my-cool-project>
 <br>2.Run composer install
 <br>3.Run cp .env.example .env
 <br>4.Run php artisan key:generate
