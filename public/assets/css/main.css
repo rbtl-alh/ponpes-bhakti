@@ -1,0 +1,15 @@
+*{
+    font-family: 'Inter', sans-serif;
+}
+.navbar{
+    background-color: #EEF2E6;
+}
+
+.btn-pen{
+    background-color: #1C6758;
+}
+
+.nav-black{
+    color: black !important;
+    margin-right: 1rem;
+}
