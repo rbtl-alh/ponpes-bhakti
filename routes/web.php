@@ -16,6 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
+
 Route::get('/berita', function () {
     return view('berita.index');
+});
+
+Route::get('/daftarustadz', function () {
+    return view('daftar.ustadz');
 });

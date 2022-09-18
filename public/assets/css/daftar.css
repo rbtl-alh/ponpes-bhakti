@@ -27,6 +27,6 @@ section{
     font-weight: 800;
     font-size: 40px;
 }
-.p-card{
-    background-color: #673e1c !important;
-    border-radius: 20px !important;}
+.card{
+    border-radius: 24px !important;
+}
