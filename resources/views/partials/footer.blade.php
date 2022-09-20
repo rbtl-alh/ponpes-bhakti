@@ -102,7 +102,7 @@
                                 
                                     }
                                 }
-                                @media only screen and (max-width:1024px){
+                                @media only screen and (min-width:970px) and (max-width:1024px){
                                     .gmap_canvas{
                                         height:262px;
                                         width:398px;        
