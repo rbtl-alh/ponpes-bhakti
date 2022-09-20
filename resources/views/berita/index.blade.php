@@ -36,7 +36,7 @@
     <div class="row justify-content-center">
         <div class="card p-card mt-3" style="max-width: 1000px;">
             <div class="row no-gutters">
-                <div class="col-md-4 ">
+                <div class="col-md-4 poto ">
                     <img src="assets/img/menanampohon.jpg" alt="Sabar ya:)" width="300" style="height: 100%;">
                 </div>
                 <div class="col-md-8">
