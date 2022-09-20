@@ -24,3 +24,7 @@ Route::get('/berita', function () {
 Route::get('/daftarustadz', function () {
     return view('daftar.ustadz');
 });
+
+Route::get('/sejarah', function () {
+    return view('sejarah.sejarah');
+});
