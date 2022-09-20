@@ -17,7 +17,9 @@
                 </div>
             </div>
         </div>
-    </div> 
+    </div>     
+</section>
+<section class="container">
     <div class="row justify-content-center">
         <div class="card p-card mt-4" style="width: 80rem;">
             <div class="card-body">
@@ -27,6 +29,5 @@
             </div>
           </div>
     </div>
-    
 </section>
 @endsection
