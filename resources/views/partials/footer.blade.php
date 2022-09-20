@@ -4,14 +4,14 @@
             <div class="col-md-6">
                 <div class="row ">
                     <div class="col-5">
-                        <img class="ml-4" src="{{ asset('assets/img/logo-bwh.png') }}" alt="" width="175">
+                        <img class="f-logo" src="{{ asset('assets/img/logo-bwh.png') }}" alt="" width="175">
                     </div>
-                    <div class="col-4">
-                        <div class="row d-flex">
+                    <div class="col-md-4 f-medsos">
+                        <div class="row">
                             <div class="col-3">
                                 <img src="{{ asset('assets/img/icons/ig.png') }}" alt="" width="40">
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-4">
                                 <p class="pt-2">@popesbhaktibapakemak</p>
                             </div>
                         </div>
@@ -19,7 +19,7 @@
                             <div class="col-3">
                                 <img src="{{ asset('assets/img/icons/fb.png') }}" alt="" width="40">
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-4">
                                 <p class="pt-2">@popesbhaktibapakemak</p>
                             </div>
                         </div>
@@ -27,7 +27,7 @@
                             <div class="col-3">
                                 <img class="p-1" src="{{ asset('assets/img/icons/gmail.png') }}" alt="" width="40">
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-4">
                                 <p class="pt-2">@popesbhaktibapakemak</p>
                             </div>
                         </div>
@@ -35,7 +35,7 @@
                             <div class="col-3">
                                 <img src="{{ asset('assets/img/icons/wa.png') }}" alt="" width="40">
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-4">
                                 <p class="pt-2">@popesbhaktibapakemak</p>
                             </div>
                         </div>
@@ -83,6 +83,30 @@
                                 border: 1px solid #D6CDA4;
                                 border-radius: 12px;
                                 margin-top: 7px;
+                                }
+                                @media only screen and (min-width:768px) and (max-width:969px){
+                                    .mapouter{
+                                        position:relative;
+                                        text-align:right;
+                                        height:262px;
+                                        width:299px;
+                                    }
+                                    .gmap_canvas{
+                                        overflow:hidden;
+                                        background:none!important;
+                                        height:262px;
+                                        width:299px;
+                                        border: 1px solid #D6CDA4;
+                                        border-radius: 12px;
+                                        margin-top: 7px;
+                                
+                                    }
+                                }
+                                @media only screen and (max-width:1024px){
+                                    .gmap_canvas{
+                                        height:262px;
+                                        width:398px;        
+                                    }
                                 }
                         </style>
                     </div>
