@@ -28,3 +28,6 @@ Route::get('/daftarustadz', function () {
 Route::get('/sejarah', function () {
     return view('sejarah.sejarah');
 });
+Route::get('/visi-misi', function () {
+    return view('visimisi');
+});

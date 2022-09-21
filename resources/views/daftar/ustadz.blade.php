@@ -19,89 +19,87 @@
         </div>
     </div>
     <div class="container">
-        <div class="row mt-4 mb-4">
-            <div class="col">
-                <div class="card" style="width: 13rem;">
-                    <img src="{{ asset('assets/img/siluet.png') }}" class="card-img-top" alt="...">
+        <div class="row mt-4">
+            <div class="col-md-3 px-4">
+                <div class="card u-card">
+                    <img src="{{ asset('assets/img/siluet.png') }}" class="card-img-top mx-auto" alt="...">
                     <div class="card-body">
-                        <h3 class="text-center">BAMBANG</h3>
+                        <h5 class="text-center">BAMBANG</h5>
                       <p class="card-text text-center">guru ngaji</p>
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card" style="width: 13rem;">
-                    <img src="{{ asset('assets/img/siluet.png') }}" class="card-img-top" alt="...">
+            <div class="col-md-3 px-4">
+                <div class="card u-card">
+                    <img src="{{ asset('assets/img/siluet.png') }}" class="card-img-top mx-auto" alt="...">
                     <div class="card-body">
-                        <h3 class="text-center">BAMBANG</h3>
-                      <p class="card-text text-center">guru ngaji</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col">
-                <div class="card" style="width: 13rem;">
-                    <img src="{{ asset('assets/img/siluet.png') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h3 class="text-center">BAMBANG</h3>
+                        <h5 class="text-center">BAMBANG</h5>
                       <p class="card-text text-center">guru ngaji</p>
                     </div>
                 </div>
             </div>
             
-            <div class="col">
-                <div class="card" style="width: 13rem;">
-                    <img src="{{ asset('assets/img/siluet.png') }}" class="card-img-top" alt="...">
+            <div class="col-md-3 px-4">
+                <div class="card u-card">
+                    <img src="{{ asset('assets/img/siluet.png') }}" class="card-img-top mx-auto" alt="...">
                     <div class="card-body">
-                        <h3 class="text-center">BAMBANG</h3>
+                        <h5 class="text-center">BAMBANG</h5>
+                      <p class="card-text text-center">guru ngaji</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 px-4">
+                <div class="card u-card">
+                    <img src="{{ asset('assets/img/siluet.png') }}" class="card-img-top mx-auto" alt="...">
+                    <div class="card-body">
+                        <h5 class="text-center">BAMBANG</h5>
                       <p class="card-text text-center">guru ngaji</p>
                     </div>
                 </div>
             </div>
         </div>    
-        <div class="row">
 
-            <div class="col">
-                <div class="card" style="width: 13rem;">
-                    <img src="{{ asset('assets/img/siluet.png') }}" class="card-img-top" alt="...">
+        <div class="row">
+            <div class="col-md-3 px-4">
+                <div class="card u-card">
+                    <img src="{{ asset('assets/img/siluet.png') }}" class="card-img-top mx-auto" alt="...">
                     <div class="card-body">
-                        <h3 class="text-center">BAMBANG</h3>
+                        <h5 class="text-center">BAMBANG</h5>
                       <p class="card-text text-center">guru ngaji</p>
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card" style="width: 13rem;">
-                    <img src="{{ asset('assets/img/siluet.png') }}" class="card-img-top" alt="...">
+            <div class="col-md-3 px-4">
+                <div class="card u-card">
+                    <img src="{{ asset('assets/img/siluet.png') }}" class="card-img-top mx-auto" alt="...">
                     <div class="card-body">
-                        <h3 class="text-center">BAMBANG</h3>
-                      <p class="card-text text-center">guru ngaji</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col">
-                <div class="card" style="width: 13rem;">
-                    <img src="{{ asset('assets/img/siluet.png') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h3 class="text-center">BAMBANG</h3>
+                        <h5 class="text-center">BAMBANG</h5>
                       <p class="card-text text-center">guru ngaji</p>
                     </div>
                 </div>
             </div>
             
-            <div class="col">
-                <div class="card" style="width: 13rem;">
-                    <img src="{{ asset('assets/img/siluet.png') }}" class="card-img-top" alt="...">
+            <div class="col-md-3 px-4">
+                <div class="card u-card">
+                    <img src="{{ asset('assets/img/siluet.png') }}" class="card-img-top mx-auto" alt="...">
                     <div class="card-body">
-                        <h3 class="text-center">BAMBANG</h3>
+                        <h5 class="text-center">BAMBANG</h5>
                       <p class="card-text text-center">guru ngaji</p>
                     </div>
                 </div>
             </div>
             
-          
-        </div>
+            <div class="col-md-3 px-4">
+                <div class="card u-card">
+                    <img src="{{ asset('assets/img/siluet.png') }}" class="card-img-top mx-auto" alt="...">
+                    <div class="card-body">
+                        <h5 class="text-center">BAMBANG</h5>
+                      <p class="card-text text-center">guru ngaji</p>
+                    </div>
+                </div>
+            </div>
+        </div>    
         
 
 

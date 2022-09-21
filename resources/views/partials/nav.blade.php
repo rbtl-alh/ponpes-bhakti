@@ -1,11 +1,11 @@
-<nav class="navbar navbar-expand-lg navbar-light">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
     <div class="container-fluid">
       <img class="mx-4" src="{{ asset('assets/img/logo1.png') }}" alt="" width="150">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse mx-4" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+      <div class="collapse navbar-collapse mx-4" id="navbarSupportedContent">
+        <ul class="navbar-nav nav ml-auto navbar-fixed-top">
             <li class="nav-item dropdown" style="color: black">
                 <a class="nav-link nav-black dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                   Profil

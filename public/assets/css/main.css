@@ -94,3 +94,32 @@ body{
         padding: ;
     } */
 }
+
+/* @media (max-width: 992px) {
+    .navbar-toggler {
+        z-index: 10;
+        outline: none !important;
+    }
+    .navbar-collapse {
+        position: absolute;
+        top: 0px;
+        width: 50%;
+        transition: all 0.2s ease-in-out;
+        display: block;
+        background-color: #ffffff;
+        padding: 100px 50px;
+        z-index: 10;
+    }
+    .navbar-collapse.collapsing {
+        height: auto !important;
+        margin-left: 50%;
+        left: 50%;
+        transition: all 0.2s ease-in-out;
+    }
+    .navbar-collapse.show {
+        right: 0;
+        height: 100vh;
+    }
+
+} */
+    
