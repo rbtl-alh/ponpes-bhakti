@@ -61,24 +61,24 @@
             </div>
         </div>
         <div class="row d-flex justify-content-center">
-            <div class="col-md-4">
+            <div class="col-md-4 mb-4">
                 <div class="card m-card mx-3">                
                     <div class="card-body text-center">
-                      <p>Membina budaya kesalihan ( kesalihan individu dan kesalihan social ) di kalangan santri dan masyarakat.</p>
+                      <p class="mt-4">Membina budaya kesalihan ( kesalihan individu dan kesalihan social ) di kalangan santri dan masyarakat.</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card m-card mx-3">
                     <div class="card-body text-center">
-                      <p>Mengembangkan dan melestarikan ilmu-ilmu agama Islam yang tertuang dalam kitab-kitab kuning dan litelatur-litelatur modern.</p>
+                      <p class="mt-4">Mengembangkan dan melestarikan ilmu-ilmu agama Islam yang tertuang dalam kitab-kitab kuning dan litelatur-litelatur modern.</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card m-card mx-3">
                     <div class="card-body text-center">
-                      <p>Menyelenggarakan kegiatan KBM sesuai dengan SOP yang telah disepakati bersama.</p>
+                      <p class="mt-4">Menyelenggarakan kegiatan KBM sesuai dengan SOP yang telah disepakati bersama.</p>
                     </div>
                 </div>
             </div>

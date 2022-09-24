@@ -31,3 +31,9 @@ Route::get('/sejarah', function () {
 Route::get('/visi-misi', function () {
     return view('visimisi');
 });
+Route::get('/galeri', function () {
+    return view('galeri.galeri');
+});
+// Route::get('/galeri', function () {
+//     return view('galeri.galeri');
+// });
