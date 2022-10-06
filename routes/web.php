@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ImageController;
+use App\Http\Controllers\KategoriController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/', function () {
     return view('home');
@@ -37,3 +43,27 @@ Route::get('/galeri', function () {
 // Route::get('/galeri', function () {
 //     return view('galeri.galeri');
 // });
+Route::get('/datasantri', function () {
+    return view('data.santri');
+});
+
+
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+    Route::get('/', function(){
+        return view('admin.layout');
+    });
+    // Route::get('/galeri', [ImageController::class, 'index'])->name('admin.galeri');
+    Route::resource('/galeri', KategoriController::class);    
+    Route::post('/galeri', [ImageController::class, 'store'])->name('admin.galeri');
+    Route::delete('/galeri/hapus/{id}', [ImageController::class, 'destroy']);
+});
+
+// Route::get('/admin/galeri', [ImageController::class, 'index'])->name('admin.galeri');
+// Route::post('/admin/galeri', [ImageController::class, 'store'])->name('admin.galeri');
+// Route::delete('/admin/galeri/{id}', [ImageController::class, 'destroy']);
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+require __DIR__.'/auth.php';
