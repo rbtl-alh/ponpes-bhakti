@@ -210,7 +210,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <!-- jQuery -->
 {{-- <script src="{{ asset('assets/lte/plugins/jquery/jquery.min.js') }}"></script> --}}
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+{{-- <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script> --}}
 <!-- Bootstrap 4 -->
 <script src="{{ asset('assets/lte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->

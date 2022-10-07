@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\UstadzController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -54,8 +55,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     });
     // Route::get('/galeri', [ImageController::class, 'index'])->name('admin.galeri');
     Route::resource('/galeri', KategoriController::class);    
-    Route::post('/galeri', [ImageController::class, 'store'])->name('admin.galeri');
+    Route::post('/galeri/upload', [ImageController::class, 'store'])->name('admin.galeri');
     Route::delete('/galeri/hapus/{id}', [ImageController::class, 'destroy']);
+    
+    Route::resource('/ustadz', UstadzController::class);    
+
+    // Route::get('/ustadz', [UstadzController::class, 'index']);
+    Route::post('/import', [UstadzController::class, 'import'])->name('ustadz.import');
+    Route::get('/export', [UstadzController::class, 'export'])->name('ustadz.export');
 });
 
 // Route::get('/admin/galeri', [ImageController::class, 'index'])->name('admin.galeri');
@@ -65,5 +72,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
 
 require __DIR__.'/auth.php';
