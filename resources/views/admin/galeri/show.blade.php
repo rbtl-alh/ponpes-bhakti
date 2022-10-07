@@ -15,7 +15,7 @@
             </div>
           </div>
           <div class="card-body">
-            <form action="{{ url('/admin/galeri') }}" method="post" enctype="multipart/form-data" class="form-inline">
+            <form action="{{ route('admin.galeri') }}" method="post" enctype="multipart/form-data" class="form-inline">
             @csrf
             <div class="form-group">
               {{-- <label for="nama_kategori">Nama Kategori</label> --}}
