@@ -2,21 +2,21 @@
 
 namespace App\Exports;
 
-use App\Models\Ustadz;
+use App\Models\Ustadzah;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use PhpOffice\PhpSpreadsheet\Shared\Date;
 use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 use Maatwebsite\Excel\Concerns\WithMapping;
 
-class UstadzExport implements FromCollection, WithHeadings
+class UstadzahExport implements FromCollection, WithHeadings
 {
     /**
     * @return \Illuminate\Support\Collection
     */
     public function collection()
     {
-        return Ustadz::select("nama", "mapel", "nip", "tempat_lahir", "tanggal_lahir", "alamat")->get();
+        return Ustadzah::select("nama", "mapel", "nip", "tempat_lahir", "tanggal_lahir", "alamat")->get();
     }
 
     // public function map($data): array
@@ -31,13 +31,13 @@ class UstadzExport implements FromCollection, WithHeadings
     //     ];
     // }
 
-    public function map($project): array
-    {
-        return [
-            $project->nama,
-            Date::stringToExcel($project->tanggal_lahir),
-        ];
-    }
+    // public function map($project): array
+    // {
+    //     return [
+    //         $project->nama,
+    //         Date::stringToExcel($project->tanggal_lahir),
+    //     ];
+    // }
 
     public function headings(): array
     {

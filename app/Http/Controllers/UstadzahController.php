@@ -3,28 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Imports\UstadzImport;
-use App\Exports\UstadzExport;
-use Maatwebsite\Excel\Facades\Excel; 
-use App\Models\Ustadz;
-use App\Models\Image;
-use App\Models\Photo;
 use App\Models\Ustadzah;
+use App\Imports\UstadzahImport;
+use App\Exports\UstadzahExport;
+use Maatwebsite\Excel\Facades\Excel; 
+use App\Models\Photo;
 use Illuminate\Support\Facades\Storage;
 
-class UstadzController extends Controller
+class UstadzahController extends Controller
 {
     public function index(){
         //mengambil data user
-        $data = Ustadz::all();
+        $data = Ustadzah::all();
         //menampilkan halaman user dan mengirim variabel data berisi data user
-        return view('admin.ustadz.index', ['data' => $data]);
+        return view('admin.ustadzah.index', ['data' => $data]);
     }
 
     public function create()
     {
         $data = array('title' => 'Form Tambah Data Ustadz');
-        return view('admin.ustadz.create', $data);
+        return view('admin.ustadzah.create', $data);
     }
 
     public function store(Request $request)
@@ -37,19 +35,18 @@ class UstadzController extends Controller
             'tanggal_lahir'=>'required',
             'alamat'=>'required',
         ]);        
-        $inputan = $request->all();//kita masukkan semua variabel data yang diinput ke variabel $inputan               
-       
-        $itemustadz = Ustadz::create($inputan);
-        return redirect()->route('ustadz.index')->with('success', 'Data ustadz berhasil disimpan');
+        $inputan = $request->all();//kita masukkan semua variabel data yang diinput ke variabel $inputan                   
+        $itemustadzah = Ustadzah::create($inputan);
+        return redirect()->route('ustadzah.index')->with('success', 'Data ustadzah berhasil disimpan');
     }
 
     public function edit($id)
     {
-        $itemustadz = Ustadz::findOrFail($id);//cari berdasarkan id = $id, 
+        $itemustadzah = Ustadzah::findOrFail($id);//cari berdasarkan id = $id, 
         // kalo ga ada error page not found 404
         $data = array('title' => 'Form Edit Kategori',
-                    'itemustadz' => $itemustadz);
-        return view('admin.ustadz.edit', $data);
+                    'itemustadzah' => $itemustadzah);
+        return view('admin.ustadzah.edit', $data);
     }
 
     /**
@@ -69,39 +66,55 @@ class UstadzController extends Controller
             'alamat'=>'required',
             'mapel'=>'required',
         ]);
-        $itemustadz = Ustadz::findOrFail($id);//cari berdasarkan id = $id, 
+        $itemustadz = Ustadzah::findOrFail($id);//cari berdasarkan id = $id, 
         $inputan = $request->all();
         $itemustadz->update($inputan);
-        return redirect()->route('ustadz.index')->with('success', 'Data berhasil diupdate');
+        return redirect()->route('ustadzah.index')->with('success', 'Data berhasil diupdate');
+    }
+
+    public function destroy($id)
+    {
+        $itemustadzah = Ustadzah::findOrFail($id);//cari berdasarkan id = $id, 
+        // kalo ga ada error page not found 404
+        // if (count($itemkategori->images) > 0) {
+        //     // dicek dulu, kalo ada produk di dalam kategori maka proses hapus dihentikan
+        //     return back()->with('error', 'Hapus terlebih dahulu seluruh gambar di dalam kategori ini, proses dihentikan');
+        // } else {
+        // }
+        if ($itemustadzah->delete()) {
+            return back()->with('success', 'Data berhasil dihapus');
+        } else {
+            return back()->with('error', 'Data gagal dihapus');
+        }
     }
 
     public function import(Request $request){
         //melakukan import file
-        Excel::import(new UstadzImport, request()->file('file'));
+        Excel::import(new UstadzahImport, request()->file('file'));
         //jika berhasil kembali ke halaman sebelumnya
-        return redirect()->route('ustadz.index')->with('success', 'Data berhasil ditambah');
+        return back();
     }
 
     public function export() 
     {
-        return Excel::download(new UstadzExport, 'ustadz.xlsx');
+        return Excel::download(new UstadzahExport, 'ustadzah.xlsx');
     }
 
     public function uploadimage(Request $request) {
         $this->validate($request, [
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'ustadz_id' => 'required',
+            'ustadzah_id' => 'required',
         ]);
         // $itemuser = $request->user();
-        $itemkategori = Ustadz::where('id', $request->ustadz_id)
+        $itemustadzah = Ustadzah::where('id', $request->ustadzah_id)
                                 ->first();
-        if ($itemkategori) {
+        if ($itemustadzah) {
             $fileupload = $request->file('image');
             $folder = 'assets/images';
             $itemgambar = $this->upload($fileupload, $folder);
             $inputan['foto'] = $itemgambar->url;//ambil url file yang barusan diupload
             // var_dump($request->ustadz_id);exit();
-            $itemkategori->update($inputan);
+            $itemustadzah->update($inputan);
             return back()->with('success', 'Image berhasil diupload');
         } else {
             return back()->with('error', 'Kategori tidak ditemukan');
@@ -109,18 +122,18 @@ class UstadzController extends Controller
     }
 
     public function deleteimage(Request $request, $id) {        
-        $itemustadz = Ustadz::where('id', $id)
+        $itemustadzah = Ustadzah::where('id', $id)
                                 ->first();
-        if ($itemustadz) {
+        if ($itemustadzah) {
             // kita cari dulu database berdasarkan url gambar
-            $itemgambar = Photo::where('url', $itemustadz->foto)->first();
+            $itemgambar = Photo::where('url', $itemustadzah->foto)->first();
             // hapus imagenya
             if ($itemgambar) {
                 Storage::delete($itemgambar->url);
                 $itemgambar->delete();
             }
             // baru update foto kategori
-            $itemustadz->update(['foto' => null]);
+            $itemustadzah->update(['foto' => null]);
             return back()->with('success', 'Data berhasil dihapus');
         } else {
             return back()->with('error', 'Data tidak ditemukan');
@@ -132,21 +145,4 @@ class UstadzController extends Controller
         $inputangambar['url'] = $path;                
         return Photo::create($inputangambar);
     }
-
-    public function destroy($id)
-    {
-        $itemustadz = Ustadz::findOrFail($id);//cari berdasarkan id = $id, 
-        // kalo ga ada error page not found 404
-        // if (count($itemkategori->images) > 0) {
-        //     // dicek dulu, kalo ada produk di dalam kategori maka proses hapus dihentikan
-        //     return back()->with('error', 'Hapus terlebih dahulu seluruh gambar di dalam kategori ini, proses dihentikan');
-        // } else {
-        // }
-        if ($itemustadz->delete()) {
-            return back()->with('success', 'Data berhasil dihapus');
-        } else {
-            return back()->with('error', 'Data gagal dihapus');
-        }
-    }
-       
 }

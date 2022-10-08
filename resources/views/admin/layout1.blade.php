@@ -123,7 +123,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="pages/mailbox/compose.html" class="nav-link">
+                    <a href="{{ url('/admin/ustadzah') }}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Daftar Ustadzah</p>
                     </a>

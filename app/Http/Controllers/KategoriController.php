@@ -136,11 +136,5 @@ class KategoriController extends Controller
                 return back()->with('error', 'Data gagal dihapus');
             }
         }
-        // if ($itemkategori->delete()) {
-        //     return back()->with('success', 'Data berhasil dihapus');
-        // } else {
-        //     return back()->with('error', 'Data gagal dihapus');
-        // }
-
     }
 }

@@ -19,7 +19,6 @@
   }
 </style>
 
-
 @section('content')
 
 <div class="container-fluid">
@@ -27,12 +26,13 @@
       <div class="col col-lg-8 col-md-8">
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">Tambah Data Ustadz</h3>
+            <h3 class="card-title">Tambah Data Ustadzah</h3>
             <div class="card-tools">
-              <a href="{{ route('ustadz.index') }}" class="btn btn-sm btn-danger">
+              <a href="{{ route('ustadzah.index') }}" class="btn btn-sm btn-danger">
                 Tutup
               </a>
             </div>
+
             <br><br>
             <div>
               <h6 style="font-weight:bolder">Silahkan pilih untuk menambah data</h6>
@@ -63,59 +63,59 @@
                     <p>{{ $message }}</p>
                 </div>
             @endif
-            <form action="{{ route('ustadz.store') }}" method='POST'>
-            @csrf
-              <div class="hide" id="div1">
-                <div class="form-group row">
-                    <label for="nama" class="col-sm-3 col-form-label">Nama</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" id="nama" name="nama">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="nip" class="col-sm-3 col-form-label">NIP</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" id="nip" name="nip">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="mapel" class="col-sm-3 col-form-label">Mata Pelajaran</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" id="mapel" name="mapel">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="tempat_lahir" class="col-sm-3 col-form-label">Tempat Lahir</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="tanggal_lahir" class="col-sm-3 col-form-label">Tanggal Lahir</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" id="tanggal_lahir" placeholder="YYYY-MM-DD" name="tanggal_lahir">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="alamat" class="col-sm-3 col-form-label">Alamat</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" id="alamat" name="alamat">
-                    </div>
-                </div>
+            <div class="hide" id="div1">
+              <form action="{{ route('ustadzah.store') }}" method='POST'>
+              @csrf
+                  <div class="form-group row">
+                      <label for="nama" class="col-sm-3 col-form-label">Nama</label>
+                      <div class="col-sm-9">
+                          <input type="text" class="form-control" id="nama" name="nama">
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <label for="nip" class="col-sm-3 col-form-label">NIP</label>
+                      <div class="col-sm-9">
+                          <input type="text" class="form-control" id="nip" name="nip">
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <label for="mapel" class="col-sm-3 col-form-label">Mata Pelajaran</label>
+                      <div class="col-sm-9">
+                          <input type="text" class="form-control" id="mapel" name="mapel">
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <label for="tempat_lahir" class="col-sm-3 col-form-label">Tempat Lahir</label>
+                      <div class="col-sm-9">
+                          <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir">
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <label for="tanggal_lahir" class="col-sm-3 col-form-label">Tanggal Lahir</label>
+                      <div class="col-sm-9">
+                          <input type="text" class="form-control" id="tanggal_lahir" placeholder="YYYY-MM-DD" name="tanggal_lahir">
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <label for="alamat" class="col-sm-3 col-form-label">Alamat</label>
+                      <div class="col-sm-9">
+                          <input type="text" class="form-control" id="alamat" name="alamat">
+                      </div>
+                  </div>
                 <div class="form-group">
                   <button type="submit" class="btn btn-primary">Simpan</button>
                   <button type="reset" class="btn btn-warning">Reset</button>
                 </div>
-              </div>
-            </form>
+              </form>
+            </div>
 
             <div class="import" id="div2">
-              <form action="{{ route('ustadz.import') }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <input type="file" name="file" class="form-control">
-                <br>
-                <button class="btn btn-success">Import Data Ustadz</button>
-            </form>
+              <form action="{{ route('ustadzah.import') }}" method="POST" enctype="multipart/form-data">
+                  @csrf
+                  <input type="file" name="file" class="form-control">
+                  <br>
+                  <button class="btn btn-success">Import Data Ustadzah</button>
+              </form>
             </div>
           </div>
         </div>

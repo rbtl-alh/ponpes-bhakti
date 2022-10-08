@@ -13,15 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ustadz', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama');
-            $table->string('mapel');
-            $table->char('nip', 30);
-            $table->string('tempat_lahir');
-            $table->date('tanggal_lahir');
-            $table->text('alamat');
-            $table->string('foto')->nullable();
+        Schema::create('photos', function (Blueprint $table) {
+            $table->id();            
+            $table->string('url');                        
             $table->timestamps();
         });
     }
@@ -33,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ustadz');
+        Schema::dropIfExists('photos');
     }
 };

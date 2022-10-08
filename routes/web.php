@@ -3,6 +3,7 @@
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\UstadzController;
+use App\Http\Controllers\UstadzahController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -59,10 +60,22 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::delete('/galeri/hapus/{id}', [ImageController::class, 'destroy']);
     
     Route::resource('/ustadz', UstadzController::class);    
+    // Route::patch('/ustadz/{id}/edit', [UstadzController::class, 'update'])->name('ustadz.update');    
+    Route::post('/ustadz/import', [UstadzController::class, 'import'])->name('ustadz.import');
+    Route::get('/ustadz/export', [UstadzController::class, 'export'])->name('ustadz.export');
+    Route::post('/fotoustadz', [UstadzController::class, 'uploadimage']);
+    Route::delete('/imageusdtadz/{id}', [UstadzController::class, 'deleteimage']);
 
-    // Route::get('/ustadz', [UstadzController::class, 'index']);
-    Route::post('/import', [UstadzController::class, 'import'])->name('ustadz.import');
-    Route::get('/export', [UstadzController::class, 'export'])->name('ustadz.export');
+    Route::get('/ustadzah', [UstadzahController::class, 'index'])->name('ustadzah.index');  
+    Route::get('/ustadzah/create', [UstadzahController::class, 'create'])->name('ustadzah.create');  
+    Route::post('/ustadzah', [UstadzahController::class, 'store'])->name('ustadzah.store');  
+    Route::get('/ustadzah/{id}', [UstadzahController::class, 'edit'])->name('ustadzah.edit');  
+    Route::patch('/ustadzah/{id}/edit', [UstadzahController::class, 'update'])->name('ustadzah.update');  
+    Route::delete('/ustadzah/{id}', [UstadzahController::class, 'destroy'])->name('ustadzah.destroy');  
+    Route::post('/ustadzah/import', [UstadzahController::class, 'import'])->name('ustadzah.import');
+    Route::get('/ustadzah/export', [UstadzahController::class, 'export'])->name('ustadzah.export'); 
+    Route::post('/fotoustadzah', [UstadzahController::class, 'uploadimage']);
+    Route::delete('/imageusdtadzah/{id}', [UstadzahController::class, 'deleteimage']); 
 });
 
 // Route::get('/admin/galeri', [ImageController::class, 'index'])->name('admin.galeri');

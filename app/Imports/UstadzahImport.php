@@ -2,13 +2,13 @@
 
 namespace App\Imports;
 
-use App\Models\Ustadz;
+use App\Models\Ustadzah;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Imports\HeadingRowFormatter;
 
 HeadingRowFormatter::default('none');
-class UstadzImport implements ToModel, WithHeadingRow
+class UstadzahImport implements ToModel, WithHeadingRow
 {
     /**
     * @param array $row
@@ -17,7 +17,7 @@ class UstadzImport implements ToModel, WithHeadingRow
     */
     public function model(array $row)
     {
-        return new Ustadz([
+        return new Ustadzah([
             'nama'      => $row['Nama'],
             'mapel'     => $row['Mata Pelajaran'],
             'nip'     => $row['NIP'],
