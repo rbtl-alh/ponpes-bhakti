@@ -108,10 +108,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
-                {{-- <a href="{{ route('berita.index') }}" class="nav-link"> --}}
-                  {{-- <i class="nav-icon fas fa-th"></i> --}}
-                  <i class="nav-icon fas fa-image"></i>
+                <a href="{{ route('berita.index') }}" class="nav-link">
+                  {{-- <i class="nav-icon fas fa-th"></i> --}}                  
+                  <i class="nav-icon fas fa-newspaper"></i>
                   <p>
                     Berita
                   </p>
