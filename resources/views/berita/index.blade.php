@@ -47,18 +47,7 @@
 </section>  
 
 <section class="container berita">
-  <ul class="nav nav-tabs mt-4" id="myTab" role="tablist">
-    <li class="nav-item">
-      <a class="tab nav-link {{ ($title === 'Berita') ? 'active' : '' }}" id="" href={{ url('/berita') }} aria-selected="true">All</a>
-    </li>
-    @foreach($category as $item)
-    <li class="nav-item">
-      <a class="tab nav-link {{ ($title === $item['nama']) ? 'active' : '' }}" id="{{ $item['slug'] }} " href={{ url('/berita?category='.$item['slug']) }} aria-selected="false">{{ $item['nama'] }} </a>
-    </li>
-    @endforeach
-  </ul>
   {{-- start content --}}
-
   @foreach ($posts as $post)
   <div class="row d-flex justify-content-center">
       <div class="card b-card mb-3 mt-3" style="max-width: 840px;">
@@ -84,7 +73,6 @@
         </div>
   </div>   
 @endforeach
-
   {{-- end content --}}
   
     

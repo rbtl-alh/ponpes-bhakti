@@ -6,7 +6,7 @@ use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Post;
-use App\Models\PostCategory;
+use Illuminate\Support\Facades\Storage;
 
 class AdminPostController extends Controller
 {
@@ -29,9 +29,7 @@ class AdminPostController extends Controller
      */
     public function create()
     {
-        return view('admin.berita.create',[
-            'kategori' => PostCategory::all(),
-        ]);
+        return view('admin.berita.create');
     }
 
     /**
@@ -42,12 +40,18 @@ class AdminPostController extends Controller
      */
     public function store(Request $request)
     {
+        // ddd($request);        
+
         $validate = $request->validate([
             'title' => 'required|max:255',
-            'slug' => 'required|unique:posts',
-            'category_id' => 'required',
+            'slug' => 'required|unique:posts',   
+            'image' => 'image|file|max:1024',
             'body' => 'required'
         ]);
+
+        if($request->file('image')){
+            $validate['image'] = $request->file('image')->store('public/post-images');
+        }
 
         $validate['excerpt'] = Str::limit(strip_tags($request->body), 150);
 
@@ -76,9 +80,11 @@ class AdminPostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        //
+        return view('admin.berita.edit',[
+            'post' => $post
+        ]);
     }
 
     /**
@@ -88,9 +94,33 @@ class AdminPostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        $rules = [
+            'title' => 'required|max:255',    
+            'image' => 'image|file|max:1024',         
+            'body' => 'required'
+        ];
+
+        if($request->slug != $post->slug){
+            $rules['slug'] = 'required|unique:posts';
+        };
+        
+        $validate = $request->validate($rules);
+        
+        if($request->file('image')){
+            if($request->oldImage){
+                Storage::delete($request->oldImage);
+            }
+            $validate['image'] = $request->file('image')->store('public/post-images');
+        }
+
+        $validate['excerpt'] = Str::limit(strip_tags($request->body), 150);
+
+        Post::where('id', $post->id)
+            ->update($validate);
+
+        return redirect('/admin/berita')->with('success', 'Bertia berhasil diubah!');
     }
 
     /**
@@ -99,9 +129,19 @@ class AdminPostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy(Post $post)
+    {        
+        if($post->image){
+            Storage::delete($post->image);
+        }
+
+        $post = Post::findOrFail($post->id);
+
+        if ($post->delete()) {
+            return redirect('/admin/berita')->with('success', 'Data berhasil dihapus');
+        } else {
+            return redirect('/admin/berita')->with('error', 'Data gagal dihapus');
+        }        
     }
 
     public function checkSlug(Request $request){

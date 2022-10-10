@@ -11,6 +11,7 @@
             <h4 class="card-title">Berita</h4>
             <div class="card-tools">
               <a href="{{ route('berita.create') }}" class="btn btn-sm btn-primary">
+                {{-- <a href="{{ url('admin/tambah-berita') }}" class="btn btn-sm btn-primary"> --}}
                 Tambah Berita
               </a>
             </div>
@@ -31,8 +32,7 @@
                     <thead>
                       <tr>
                         <th scope="col">No</th>
-                        <th scope="col">Judul Berita</th>
-                        <th scope="col">Kategori</th>
+                        <th scope="col">Judul Berita</th>                        
                         <th scope="col">Action</th>
                       </tr>
                     </thead>
@@ -40,19 +40,18 @@
                         @foreach($posts as $k => $post)
                         <tr>
                           <th scope="row">{{ $k+1 }}</th>
-                          <td>{{ $post->title }}</td>
-                          <td>{{ $post->category->nama }}</td>
+                          <td>{{ $post->title }}</td>                          
                           <td>
-                            <a href="{{ url('admin/berita/'.$post['slug']) }}"  class="btn btn-sm btn-success mr-2 mb-2">
+                            <a href="{{ url('/admin/berita/'.$post['slug']) }}"  class="btn btn-sm btn-success mr-2 mb-2">
                                 Detail
                             </a>
-                            <a href="" class="btn btn-sm btn-primary mr-2 mb-2">
+                            <a href="/admin/berita/{{ $post->slug }}/edit" class="btn btn-sm btn-primary mr-2 mb-2">
                                 Edit
                             </a>
-                            <form action="" method="post" style="display:inline;">
+                            <form action="/admin/berita/{{ $post->id }}" method="post" style="display:inline;">
+                              {{ method_field('delete') }}
                                 @csrf
-                                {{ method_field('delete') }}
-                                <button type="submit" class="btn btn-sm btn-danger mr-2 mb-2">
+                                <button type="submit" class="btn btn-sm btn-danger mr-2 mb-2" onclick="return confirm('Apakah anda yakin?')">
                                 Hapus
                                 </button>                    
                             </form>

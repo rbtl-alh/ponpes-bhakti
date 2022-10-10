@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
-use App\Models\PostCategory;
+
 
 class PostController extends Controller
 {
@@ -23,13 +23,13 @@ class PostController extends Controller
         //         ->orWhere('body', 'like', '%' . request('search') . '%');
         // }
         $title = 'Berita';
-        if(request('category')){
-            $category = PostCategory::firstWhere('slug', request('category'));
-            $title = $category->nama;
-        }
+        // if(request('category')){
+        //     $category = PostCategory::firstWhere('slug', request('category'));
+        //     $title = $category->nama;
+        // }
         return view('berita.index',[
             "title" => $title,            
-            "category" => PostCategory::with(['posts'])->latest()->get(),
+            // "category" => PostCategory::with(['posts'])->latest()->get(),
             "posts" => Post::latest()->filter(request(['search', 'category']))->paginate(2)->withQueryString(),
             // "posts" => $post->get(),
         ]);
@@ -66,7 +66,7 @@ class PostController extends Controller
     {
         return view('berita.show',[
             'title' => 'Berita',
-            "category" => PostCategory::with(['posts'])->get(),
+            // "category" => PostCategory::with(['posts'])->get(),
             "post" => $post
         ]);
     }

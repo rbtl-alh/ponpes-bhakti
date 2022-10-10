@@ -3,11 +3,10 @@
 use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\KategoriController;
-use App\Http\Controllers\PostCategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UstadzController;
 use App\Http\Controllers\UstadzahController;
-use App\Models\PostCategory;
+
 // use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 // use PhpOffice\PhpSpreadsheet\Calculation\Category;
@@ -31,15 +30,15 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/kategori-berita', [PostCategoryController::class, 'index']);
+// Route::get('/kategori-berita', [PostCategoryController::class, 'index']);
 // Route::get('/kategori-berita/{category:slug}', [PostCategoryController::class, 'show']);
-Route::get('/kategori-berita/{category:slug}', function(PostCategory $category){
-    return view('berita.index',[
-        'title' => $category->nama,
-        'posts' => $category->posts,
-        'category' => $category->nama
-    ]);
-});
+// Route::get('/kategori-berita/{category:slug}', function(PostCategory $category){
+//     return view('berita.index',[
+//         'title' => $category->nama,
+//         'posts' => $category->posts,
+//         'category' => $category->nama
+//     ]);
+// });
 
 Route::get('/berita', [PostController::class, 'index']);
 Route::get('/berita/{post:slug}', [PostController::class, 'show']);
@@ -92,9 +91,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::post('/fotoustadzah', [UstadzahController::class, 'uploadimage']);
     Route::delete('/imageusdtadzah/{id}', [UstadzahController::class, 'deleteimage']); 
 
-    Route::resource('/berita', AdminPostController::class);
-    // Route::get('/berita/{post:slug}', [PostController::class, 'show']);
-    // Route::get('/berita', [AdminPostController::class, 'index'])->name('berita.index');
+    Route::get('/berita/create', [AdminPostController::class, 'create'])->name('berita.create');
+    Route::get('/berita/{post:slug}', [AdminPostController::class, 'show']);
+    Route::get('/berita/{post:slug}/edit', [AdminPostController::class, 'edit']);
+    Route::put('/berita/{post:slug}', [AdminPostController::class, 'update']);
+    Route::delete('/berita/{post:id}', [AdminPostController::class, 'destroy']);
+    Route::resource('/berita', AdminPostController::class);    
     Route::get('/checkSlug', [AdminPostController::class, 'checkSlug']);
 });
 
