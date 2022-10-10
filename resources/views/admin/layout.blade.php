@@ -16,6 +16,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="{{ asset('assets/lte/plugins/fontawesome-free/css/all.min.css') }}">
   <!-- Theme style -->  
   <link rel="stylesheet" href="{{ asset('assets/lte/css/adminlte.min.css') }}">
+
+  {{-- trix --}}
+  <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/trix.css') }}">
+  <script type="text/javascript" src="{{ asset('assets/js/trix.js') }}"></script>
+  <style>
+    trix-toolbar [data-trix-button-group="file-tools"]{
+      display: none;
+    }
+  </style>
+  
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -104,6 +114,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <i class="nav-icon fas fa-image"></i>
                   <p>
                     Galeri
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('berita.index') }}" class="nav-link">
+                  {{-- <i class="nav-icon fas fa-th"></i> --}}                  
+                  <i class="nav-icon fas fa-newspaper"></i>
+                  <p>
+                    Berita
                   </p>
                 </a>
               </li>

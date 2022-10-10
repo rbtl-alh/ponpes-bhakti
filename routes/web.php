@@ -1,10 +1,16 @@
 <?php
 
+use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\PostCategoryController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\UstadzController;
 use App\Http\Controllers\UstadzahController;
+use App\Models\PostCategory;
+// use App\Models\Category;
 use Illuminate\Support\Facades\Route;
+// use PhpOffice\PhpSpreadsheet\Calculation\Category;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,9 +31,18 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/berita', function () {
-    return view('berita.index');
+Route::get('/kategori-berita', [PostCategoryController::class, 'index']);
+// Route::get('/kategori-berita/{category:slug}', [PostCategoryController::class, 'show']);
+Route::get('/kategori-berita/{category:slug}', function(PostCategory $category){
+    return view('berita.index',[
+        'title' => $category->nama,
+        'posts' => $category->posts,
+        'category' => $category->nama
+    ]);
 });
+
+Route::get('/berita', [PostController::class, 'index']);
+Route::get('/berita/{post:slug}', [PostController::class, 'show']);
 
 Route::get('/daftarustadz', function () {
     return view('daftar.ustadz');
@@ -76,6 +91,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('/ustadzah/export', [UstadzahController::class, 'export'])->name('ustadzah.export'); 
     Route::post('/fotoustadzah', [UstadzahController::class, 'uploadimage']);
     Route::delete('/imageusdtadzah/{id}', [UstadzahController::class, 'deleteimage']); 
+
+    Route::resource('/berita', AdminPostController::class);
+    // Route::get('/berita/{post:slug}', [PostController::class, 'show']);
+    // Route::get('/berita', [AdminPostController::class, 'index'])->name('berita.index');
+    Route::get('/checkSlug', [AdminPostController::class, 'checkSlug']);
 });
 
 // Route::get('/admin/galeri', [ImageController::class, 'index'])->name('admin.galeri');
