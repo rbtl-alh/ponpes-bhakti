@@ -73,10 +73,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::post('/galeri/upload', [ImageController::class, 'store'])->name('admin.galeri');
     Route::delete('/galeri/hapus/{id}', [ImageController::class, 'destroy']);
     
+    Route::get('/ustadz/export', [UstadzController::class, 'export'])->name('ustadz.export');
     Route::resource('/ustadz', UstadzController::class);    
     // Route::patch('/ustadz/{id}/edit', [UstadzController::class, 'update'])->name('ustadz.update');    
     Route::post('/ustadz/import', [UstadzController::class, 'import'])->name('ustadz.import');
-    Route::get('/ustadz/export', [UstadzController::class, 'export'])->name('ustadz.export');
     Route::post('/fotoustadz', [UstadzController::class, 'uploadimage']);
     Route::delete('/imageusdtadz/{id}', [UstadzController::class, 'deleteimage']);
 

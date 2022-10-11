@@ -29,6 +29,7 @@
                     <th colspan="5" class="text-left">
                         Data Ustadz
                         <a class="btn btn-md btn-warning float-end" href="{{ route('ustadz.export') }}">Export Data Ustadz</a>
+                        {{-- <a class="btn btn-md btn-warning float-end" href="{{ url('admin/ustadz/export') }}">Export Data Ustadz</a> --}}
                         <a class="btn btn-md btn-success float-end mx-3" href="{{ route('ustadz.create') }}">Tambah Data Ustadz</a>
                     </th>
                 </tr>

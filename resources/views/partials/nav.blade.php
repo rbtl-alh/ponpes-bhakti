@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top">
     <div class="container-fluid">
-      <img class="mx-4" src="{{ asset('assets/img/logo1.png') }}" alt="" width="150">
+     <a href="/"> <img class="mx-4" src="{{ asset('assets/img/logo1.png') }}" alt="" width="150">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -12,9 +12,9 @@
                 </a>
                 <div class="dropdown-menu">
                   <a class="dropdown-item" href="#">Struktur Organisasi</a>
-                  <a class="dropdown-item" href="#">Sejarah</a>                  
-                  <a class="dropdown-item" href="#">Visi Misi</a>
-                  <a class="dropdown-item" href="#">Daftar Ustadz</a>                  
+                  <a class="dropdown-item" href="{{ url('/sejarah') }}">Sejarah</a>                  
+                  <a class="dropdown-item" href="{{ url('/visimisi') }}">Visi Misi</a>
+                  <a class="dropdown-item" href="{{ url('/daftarustadz') }}">Daftar Ustadz</a>                  
                   <a class="dropdown-item" href="#">Unit</a>
                 </div>
               </li>
@@ -40,7 +40,7 @@
             <a class="nav-link nav-black" href="{{ url('/berita') }}">Berita</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-black" href="#">Galeri</a>
+            <a class="nav-link nav-black" href="{{ url('/galeri') }}">Galeri</a>
           </li>
           <li class="nav-item">
             <a class="nav-link btn btn-pen px-4" role="button" href="#" style="color: white">Pendaftaran</a>

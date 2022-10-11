@@ -21,6 +21,11 @@ class UstadzController extends Controller
         return view('admin.ustadz.index', ['data' => $data]);
     }
 
+    public function show(Request $request, $id)
+    {
+        //
+    }
+
     public function create()
     {
         $data = array('title' => 'Form Tambah Data Ustadz');
