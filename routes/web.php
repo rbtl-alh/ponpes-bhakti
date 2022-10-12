@@ -4,8 +4,10 @@ use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\UstadzController;
 use App\Http\Controllers\UstadzahController;
+use App\Http\Controllers\DependantDropdownController;
 
 // use App\Models\Category;
 use Illuminate\Support\Facades\Route;
@@ -68,14 +70,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('/', function(){
         return view('admin.layout');
     });
-    // Route::get('/galeri', [ImageController::class, 'index'])->name('admin.galeri');
+
     Route::resource('/galeri', KategoriController::class);    
     Route::post('/galeri/upload', [ImageController::class, 'store'])->name('admin.galeri');
     Route::delete('/galeri/hapus/{id}', [ImageController::class, 'destroy']);
     
     Route::get('/ustadz/export', [UstadzController::class, 'export'])->name('ustadz.export');
-    Route::resource('/ustadz', UstadzController::class);    
-    // Route::patch('/ustadz/{id}/edit', [UstadzController::class, 'update'])->name('ustadz.update');    
+    Route::resource('/ustadz', UstadzController::class);            
     Route::post('/ustadz/import', [UstadzController::class, 'import'])->name('ustadz.import');
     Route::post('/fotoustadz', [UstadzController::class, 'uploadimage']);
     Route::delete('/imageusdtadz/{id}', [UstadzController::class, 'deleteimage']);
@@ -98,11 +99,23 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::delete('/berita/{post:id}', [AdminPostController::class, 'destroy']);
     Route::resource('/berita', AdminPostController::class);    
     Route::get('/checkSlug', [AdminPostController::class, 'checkSlug']);
+
+    Route::get('/siswa/export', [SiswaController::class, 'export'])->name('siswa.export');
+    Route::post('/siswa/import', [SiswaController::class, 'import'])->name('siswa.import');
+    Route::resource('/siswa', SiswaController::class);
+    // Route::get('/siswa', function(){
+    //     return view('admin.siswa.index');
+    // });
 });
 
-// Route::get('/admin/galeri', [ImageController::class, 'index'])->name('admin.galeri');
-// Route::post('/admin/galeri', [ImageController::class, 'store'])->name('admin.galeri');
-// Route::delete('/admin/galeri/{id}', [ImageController::class, 'destroy']);
+Route::get('/coba', function(){
+    return view('admin.siswa.coba');
+});
+Route::get('provinces', [DependantDropdownController::class,'provinces'])->name('provinces');
+Route::get('cities', [DependantDropdownController::class,'cities'])->name('cities');
+Route::get('districts', [DependantDropdownController::class,'districts'])->name('districts');
+Route::get('villages', [DependantDropdownController::class,'villages'])->name('villages');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
