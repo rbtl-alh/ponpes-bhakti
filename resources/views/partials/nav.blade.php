@@ -1,7 +1,8 @@
-<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-scroll">
     <div class="container-fluid">
      <a href="/"> <img class="mx-4" src="{{ asset('assets/img/logo1.png') }}" alt="" width="150">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        </a>
       <span class="navbar-toggler-icon"></span>
     </button>
       <div class="collapse navbar-collapse mx-4" id="navbarSupportedContent">
@@ -48,4 +49,13 @@
         </ul>
       </div>
     </div>
-  </nav>    
+  </nav>  
+  
+  <script>
+    $(function () {
+      $(document).scroll(function () {
+        var $nav = $(".navbar");
+        $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+      });
+    });
+  </script>

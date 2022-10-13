@@ -5,25 +5,24 @@
 
 @section('content')
 
-<section class="banner container-fluid"> 
-    <div class="row">
-        <img class="banner-img" src="{{ asset('assets/img/fotobareng.jpeg') }}" alt="">
-        <div class="banner-layer"></div>
-        <div class="container">
-            <div>
-                <div class="row title d-flex justify-content-center">
-                    <div class="col-7">
-                        <h2 class="jdl text-center" >{{ $post['title'] }}</h2>
-                        <h2 class="jdl text-center" ></h2>
-                        <h2 class="jdl text-center" ></h2>
-                    </div>
-                </div>
-            </div>
+<section class="container pt-5">     
+    <div class="row mt-5 d-flex justify-content-center">
+        <h2 class="text-center" style="font-weight: 600; font-size: 32px; color: #1C6758;">
+            {{ $post['title'] }}
+        </h2>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div class="col-3">
+            <hr class="p-hr">
+            <h6 class="text-center" style="color: #000000; font-size: 14px">{{ date("d F Y", strtotime($post['published_at'])) }}</h6>
         </div>
-    </div>   
+    </div>     
 </section>
 
 <section class="container mt-5">
-    <p>{!! $post['body'] !!}</p>
+    <img class="mr-4" src="{{ \Storage::url($post['image']) }}" style="width: 450px; float: left;" alt=""/>
+    <div  style="text-align: justify;text-justify: inter-word;">
+        <p>{!! $post['body'] !!}</p>
+    </div>
 </section>
 @endsection

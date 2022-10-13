@@ -22,9 +22,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('home');
-});
+// Route::get('/', function () {
+//     return view('home');
+// });
 
 // Route::get('/kategori-berita', [PostCategoryController::class, 'index']);
 // Route::get('/kategori-berita/{category:slug}', [PostCategoryController::class, 'show']);
@@ -50,13 +50,7 @@ Route::get('/visi-misi', function () {
     return view('visimisi');
 });
 
-// Route::get('/galeri-detail', function () {
-//     return view('galeri.detail');
-// });
-// Route::get('/datasantri', function () {
-//     return view('data.santri');
-// });
-
+Route::get('/', [UserViewController::class, 'home']);
 Route::get('/data-santri', [UserViewController::class, 'siswa']);
 Route::get('/data-ustadz', [UserViewController::class, 'ustadz']);
 Route::get('/galeri', [UserViewController::class, 'kategori']);

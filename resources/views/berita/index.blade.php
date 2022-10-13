@@ -40,13 +40,16 @@
                       </div>
                     </form>
                   </div>
-                </div>
+                </div>                
+                  <div id="section07" class="demo">                  
+                    <a id="scroll" href="#berita"><span></span><span></span><span></span></a>
+                  </div>                
             </div>
         </div>
     </div>   
 </section>  
 
-<section class="container berita">
+<section class="container berita" id="berita">
   {{-- start content --}}
   @foreach ($posts as $post)
   <div class="row d-flex justify-content-center">
@@ -79,24 +82,13 @@
   {{ $posts->links() }}
 </section>
 
-
-{{-- <section class="continer">
-    <div class="row justify-content-center">
-        <div class="card mb-3 mt-4" style="max-width: 540px;">
-            <div class="row no-gutters">
-              <div class="col-md-4">
-                <img src="..." alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-              </div>
-            </div>
-          </div>
-    </div>
-</section> --}}
-  
+<script>
+  $(function() {
+  $('a[href*=\\#]').on('click', function(e) {
+    e.preventDefault();
+    $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 500, 'linear');
+  });
+});
+</script>
+ 
 @endsection

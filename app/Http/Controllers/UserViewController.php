@@ -9,6 +9,7 @@ use App\Models\Ustadzah;
 use App\Models\Photo;
 use App\Models\KategoriGaleri;
 use App\Models\Image;
+use App\Models\Post;
 
 class UserViewController extends Controller
 {
@@ -42,6 +43,16 @@ class UserViewController extends Controller
     public function galeriAll(){
         return view('galeri.all', [
             'img' => Image::all()
+        ]);
+    }
+
+    public function home(){
+        return view('home',[
+            'berita' => Post::latest()->paginate(3),
+            'siswa' => Siswa::where('jenis_kelamin', 'Laki-laki')->count(),
+            'siswi' => Siswa::where('jenis_kelamin', 'Perempuan')->count(),
+            'ustadz' => Ustadz::all()->count(),
+            'ustadzah' => Ustadzah::all()->count(),
         ]);
     }
 }

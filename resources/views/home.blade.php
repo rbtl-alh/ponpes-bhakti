@@ -22,12 +22,12 @@
             <div class="container">
                 <div>
                     <div class="row title">
-                        <div class="col-md-5">
+                        <div class="col-lg-5 col-md-7">
                             <h2 class="jdl">Pondok Pesantren Bhakti Bapak Emak</h2>
                         </div>
                     </div>
                     <div class="row ket">
-                        <div class="col-md-7">
+                        <div class="col-lg-7 col-md-9">
                             <p class="ket-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias unde ullam iure quam officiis voluptas natus enim magnam possimus a, exercitationem in nesciunt dignissimos ipsa ad nostrum, cupiditate corrupti, animi quae nam dolores. Veritatis, dolore.</p>
                         </div>
                     </div>
@@ -189,7 +189,7 @@
                     <div class="card" style="background-color: transparent !important; border: none;">
                         <div class="d-flex justify-content-center">
                             <div class="card-text try">                        
-                                <h4 class="text text-center animation zoom-in">39</h4>                        
+                                <h4 class="text text-center animation zoom-in">{{ $ustadz }}</h4>                        
                             </div>
                         </div>
                         <p class="text-center mt-3 f-ket animation zoom-in" style="font-size: 1.3rem;color: #EEF2E6;">Ustadz</p>
@@ -200,7 +200,7 @@
                     <div class="card" style="background-color: transparent !important; border: none;">
                         <div class="d-flex justify-content-center">
                             <div class="card-text try">                        
-                                <h4 class="text text-center animation zoom-in">17</h4>
+                                <h4 class="text text-center animation zoom-in">{{ $ustadzah }}</h4>
                             </div>
                         </div>
                         <p class="text-center mt-3 f-ket animation zoom-in" style="font-size: 1.3rem;color: #EEF2E6;">Ustadzah</p>
@@ -211,7 +211,7 @@
                     <div class="card" style="background-color: transparent !important; border: none;">
                         <div class="d-flex justify-content-center">
                             <div class="card-text try">                        
-                                <h4 class="text text-center animation zoom-in">54</h4>                        
+                                <h4 class="text text-center animation zoom-in">{{ $siswa }}</h4>                        
                             </div>
                         </div>
                         <p class="text-center mt-3 f-ket animation zoom-in" style="font-size: 1.3rem;color: #EEF2E6;">Siswa</p>
@@ -222,7 +222,7 @@
                     <div class="card" style="background-color: transparent !important; border: none;">
                         <div class="d-flex justify-content-center">
                             <div class="card-text try">                        
-                                <h4 class="text text-center animation zoom-in">34</h4>                        
+                                <h4 class="text text-center animation zoom-in">{{ $siswi }}</h4>                        
                             </div>
                         </div>
                         <p class="text-center mt-3 f-ket animation zoom-in" style="font-size: 1.3rem;color: #EEF2E6;">Siswi</p>
@@ -234,64 +234,73 @@
     </section>
 
     <section class="berita container mt-4">
+        <div class="row pt-3 d-flex justify-content-center">
+            <h2 class="text-center" style="font-weight: 700; color: #1C6758;">
+                Berita
+            </h2>
+        </div>
+        <div class="row pb-3 d-flex justify-content-center">
+            <div class="col-1">
+                <hr class="p-hr">
+            </div>
+        </div>
         <div class="row justify-content-around">
-            <div class="col-md-3">                
-                <div class="card">
-                    <img src="{{ asset('assets/img/fotobareng.jpeg') }}" class="card-img-top" alt="...">
+            @foreach($berita as $post)
+            <div class="col-md-4 px-4 pb-4">                
+                <div class="card card-berita">
+                    <img src="{{ \Storage::url($post->image) }}" class="card-img-top" alt="...">
                     <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <h6 style="color: #BBBBBB; font-size: 12px">{{ date("d-m-Y", strtotime($post->published_at)) }}</h6>
+                        <h5 class="card-title" style="font-weight: 600">{{ $post->title }}</h5>
+                        <p class="card-text" style="font-size: 14px">{{ $post->excerpt }}</p>
+                        <div class="row justify-content-end pr-2">
+                            <a href="{{ url('berita/'.$post->slug) }}" class="btn btn-secondary btn-berita">Baca selengkapnya</a>
+                        </div>
                     </div>
                   </div>
             </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <img src="{{ asset('assets/img/fotobareng.jpeg') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                  </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <img src="{{ asset('assets/img/fotobareng.jpeg') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                  </div>
-            </div>
+            @endforeach
         </div>
     </section>
 {{-- END SECTION--}}
 </section>
 
 <script>
-    $(document).ready(function() {
-        $(window).scroll(function(){            
-            $('.zoom-in').each(function(){        
-            var zoomIn = 1, zoomOut = 0;
-            
-            if(isScrolledIntoView($(this))){        
-                $('.try').addClass('circle');               
-                $(this).css({
-                    '-webkit-transform': 'scale(' + zoomIn + ')',
-                    'transform': 'scale(' + zoomIn + ')',
-                });
-            }
-            
-            else{
-                $('.try').removeClass('circle');
-                $(this).css({
-                    '-webkit-transform': 'scale(' + zoomOut + ')',
-                    'transform': 'scale(' + zoomOut + ')'
-                });
-            }
+    $(function() {
+        $('a[href*=\\#]').on('click', function(e) {
+            e.preventDefault();
+            $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 500, 'linear');
         });
+    });
+    $(document).ready(function() {
+        $(window).scroll(function(){   
+            $('.try').each(function(){        
+               
+               if(isScrolledIntoView($(this))){        
+                   $('.try').addClass('circle');               
+               }
+               
+               else{
+                   $('.try').removeClass('circle');
+               }
+           });         
+            $('.zoom-in').each(function(){        
+                var zoomIn = 1, zoomOut = 0;
+                
+                if(isScrolledIntoView($(this))){                                           
+                    $(this).css({
+                        '-webkit-transform': 'scale(' + zoomIn + ')',
+                        'transform': 'scale(' + zoomIn + ')',
+                    });
+                }
+                
+                else{                    
+                    $(this).css({
+                        '-webkit-transform': 'scale(' + zoomOut + ')',
+                        'transform': 'scale(' + zoomOut + ')'
+                    });
+                }
+            });            
 
         });
     });

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use \Cviebrock\EloquentSluggable\Services\SlugService;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Post;
@@ -54,6 +55,8 @@ class AdminPostController extends Controller
         }
 
         $validate['excerpt'] = Str::limit(strip_tags($request->body), 150);
+
+        $validate['published_at'] = Carbon::now();
 
         Post::create($validate);
 

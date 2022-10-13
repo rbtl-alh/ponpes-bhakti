@@ -30,7 +30,7 @@ class PostController extends Controller
         return view('berita.index',[
             "title" => $title,            
             // "category" => PostCategory::with(['posts'])->latest()->get(),
-            "posts" => Post::latest()->filter(request(['search', 'category']))->paginate(2)->withQueryString(),
+            "posts" => Post::latest()->filter(request(['search', 'category']))->paginate(7)->withQueryString(),
             // "posts" => $post->get(),
         ]);
     }
