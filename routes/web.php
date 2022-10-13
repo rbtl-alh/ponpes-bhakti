@@ -7,11 +7,10 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\UstadzController;
 use App\Http\Controllers\UstadzahController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DependantDropdownController;
-
-// use App\Models\Category;
+use App\Http\Controllers\UserViewController;
 use Illuminate\Support\Facades\Route;
-// use PhpOffice\PhpSpreadsheet\Calculation\Category;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,11 +22,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::get('/', function () {
     return view('home');
 });
@@ -45,9 +39,9 @@ Route::get('/', function () {
 Route::get('/berita', [PostController::class, 'index']);
 Route::get('/berita/{post:slug}', [PostController::class, 'show']);
 
-Route::get('/daftarustadz', function () {
-    return view('daftar.ustadz');
-});
+// Route::get('/daftarustadz', function () {
+//     return view('daftar.ustadz');
+// });
 
 Route::get('/sejarah', function () {
     return view('sejarah.sejarah');
@@ -55,16 +49,19 @@ Route::get('/sejarah', function () {
 Route::get('/visi-misi', function () {
     return view('visimisi');
 });
-Route::get('/galeri', function () {
-    return view('galeri.galeri');
-});
-// Route::get('/galeri', function () {
-//     return view('galeri.galeri');
-// });
-Route::get('/datasantri', function () {
-    return view('data.santri');
-});
 
+// Route::get('/galeri-detail', function () {
+//     return view('galeri.detail');
+// });
+// Route::get('/datasantri', function () {
+//     return view('data.santri');
+// });
+
+Route::get('/data-santri', [UserViewController::class, 'siswa']);
+Route::get('/data-ustadz', [UserViewController::class, 'ustadz']);
+Route::get('/galeri', [UserViewController::class, 'kategori']);
+Route::get('/galeri/all', [UserViewController::class, 'galeriAll']);
+Route::get('/galeri/{kategoriGaleri:nama_kategori}', [UserViewController::class, 'galeri']);
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('/', function(){
@@ -103,9 +100,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('/siswa/export', [SiswaController::class, 'export'])->name('siswa.export');
     Route::post('/siswa/import', [SiswaController::class, 'import'])->name('siswa.import');
     Route::resource('/siswa', SiswaController::class);
-    // Route::get('/siswa', function(){
-    //     return view('admin.siswa.index');
-    // });
+
+    Route::resource('/data-admin', AdminController::class);
 });
 
 Route::get('/coba', function(){

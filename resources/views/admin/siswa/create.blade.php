@@ -32,7 +32,7 @@
           <div class="card-header">
             <h3 class="card-title">Tambah Data Siswa</h3>
             <div class="card-tools">
-              <a href="{{ route('ustadz.index') }}" class="btn btn-sm btn-danger">
+              <a href="{{ route('siswa.index') }}" class="btn btn-sm btn-danger">
                 Tutup
               </a>
             </div>
@@ -72,28 +72,29 @@
                 <div class="form-group row">
                     <label for="nama" class="col-sm-3 col-form-label">Nama</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="nama" name="nama">
+                        <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="jenis_kelamin" class="col-sm-3 col-form-label">Jenis Kelamin</label>
                     <div class="col-sm-9">
                         <select id="jenis_kelamin" name="jenis_kelamin" class="form-control">                            
-                            <option selected value="Laki-laki">Laki - laki</option>                                                        
-                            <option selected value="Perempuan">Perempuan</option>                                                        
+                            <option selected>Pilih jenis kelamin</option>                                                        
+                            <option value="Laki-laki">Laki - laki</option>                                                        
+                            <option value="Perempuan">Perempuan</option>                                                        
                         </select>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="nisn" class="col-sm-3 col-form-label">NISN</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="nisn" name="nisn">
+                        <input type="text" class="form-control" id="nisn" name="nisn" placeholder="NISN">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="tempat_lahir" class="col-sm-3 col-form-label">Tempat Lahir</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir">
+                        <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="Tempat lahir">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -105,7 +106,7 @@
                 <div class="form-group row">
                     <label for="alamat" class="col-sm-3 col-form-label">Alamat</label>
                     <div class="col-sm-9">
-                        <textarea type="text" class="form-control" id="alamat" name="alamat"></textarea>
+                        <textarea type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat"></textarea>
                     </div>
                 </div>
                 <div class="form-group">

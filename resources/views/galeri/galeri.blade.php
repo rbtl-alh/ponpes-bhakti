@@ -22,26 +22,38 @@
 </section>  
 <section class="container galeri">
     <div class="row justify-content-around">
-        <div class="col-md-4 mt-5">
-            <div class="card bg-dark text-white">
-                <img src="{{ asset('assets/img/fotobareng.jpeg') }}" class="card-img" alt="...">
-                <div class="cover"></div>
-                <div class="card-img-overlay">
-                  <h5 class="card-title text-center text-cover">ALL</h5>                  
-                </div>
+        <div class="col-md-4 mt-5 kat-img">
+            <a href="/galeri/all">
+                <div class="card kategori-card bg-dark text-white">
+                    <img src="{{ asset('assets/img/fotobareng.jpeg') }}" class="card-img" alt="...">
+                    <div class="cover"></div>
+                    <div class="kat-overlay">
+                        <div class="kat-icon" title="User Profile"></div>
+                    </div>                 
+                    <div class="card-img-overlay">
+                        <h5 class="card-title text-center text-cover">ALL</h5> 
+                    </div>
               </div>
+            </a>
         </div>
-        <div class="col-md-4 mt-5">
-            <div class="card bg-dark text-white">
-                <img src="{{ asset('assets/img/fotobareng.jpeg') }}" class="card-img" alt="...">
-                <div class="cover"></div>
-                <div class="card-img-overlay">
-                  <h5 class="card-title text-center text-cover">KEGIATAN SANTRI</h5>                  
+        @foreach($kateogri as $item)
+        <div class="col-md-4 mt-5 kat-img">
+            <a href="{{ url('galeri/' . $item->nama_kategori) }}">
+                <div class="card kategori-card bg-dark text-white">
+                    <img src="{{ asset('assets/img/fotobareng.jpeg') }}" class="card-img" alt="...">
+                    <div class="cover"></div>
+                    <div class="kat-overlay">
+                        <div class="kat-icon" title="User Profile"></div>
+                    </div>    
+                    <div class="card-img-overlay">
+                      <h5 class="card-title text-center text-cover" style="text-transform: uppercase;">{{ $item->nama_kategori }}</h5>                  
+                    </div>
                 </div>
-              </div>
+            </a>
         </div>
+        @endforeach
     </div>
-    <div class="row justify-content-around">
+    {{-- <div class="row justify-content-around">
         <div class="col-md-4 mt-5">
             <div class="card bg-dark text-white">
                 <img src="{{ asset('assets/img/fotobareng.jpeg') }}" class="card-img" alt="...">
@@ -60,7 +72,7 @@
                 </div>
               </div>
         </div>
-    </div>
+    </div> --}}
 </section>
 
 @endsection

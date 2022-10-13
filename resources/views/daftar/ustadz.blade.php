@@ -19,89 +19,53 @@
         </div>
     </div>
     <div class="container">
+        <div class="row mt-3 justify-content-center">
+            <div class="card px-4 py-2">
+                <h4 class="text-center" >Daftar Ustadz</h4>
+            
+            </div>
+        </div>
         <div class="row mt-4">
+            @foreach($ustadz as $item)
             <div class="col-md-3 px-4">
                 <div class="card u-card">
-                    <img src="{{ asset('assets/img/siluet.png') }}" class="card-img-top mx-auto" alt="...">
+                    @if($item->foto != null)
+                        <img src="{{ \Storage::url($item->foto) }}" class="card-img-top mx-auto" alt="...">
+                    @else
+                        <img src="{{ asset('assets/img/siluet.png') }}" class="card-img-top mx-auto" alt="...">
+                    @endif
                     <div class="card-body">
-                        <h5 class="text-center">BAMBANG</h5>
-                      <p class="card-text text-center">guru ngaji</p>
+                        <h5 class="text-center">{{ $item->nama }}</h5>
+                      <p class="card-text text-center">{{ $item->mapel }}</p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 px-4">
-                <div class="card u-card">
-                    <img src="{{ asset('assets/img/siluet.png') }}" class="card-img-top mx-auto" alt="...">
-                    <div class="card-body">
-                        <h5 class="text-center">BAMBANG</h5>
-                      <p class="card-text text-center">guru ngaji</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-3 px-4">
-                <div class="card u-card">
-                    <img src="{{ asset('assets/img/siluet.png') }}" class="card-img-top mx-auto" alt="...">
-                    <div class="card-body">
-                        <h5 class="text-center">BAMBANG</h5>
-                      <p class="card-text text-center">guru ngaji</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-3 px-4">
-                <div class="card u-card">
-                    <img src="{{ asset('assets/img/siluet.png') }}" class="card-img-top mx-auto" alt="...">
-                    <div class="card-body">
-                        <h5 class="text-center">BAMBANG</h5>
-                      <p class="card-text text-center">guru ngaji</p>
-                    </div>
-                </div>
-            </div>
-        </div>    
+            @endforeach
+        </div>        
 
-        <div class="row">
-            <div class="col-md-3 px-4">
-                <div class="card u-card">
-                    <img src="{{ asset('assets/img/siluet.png') }}" class="card-img-top mx-auto" alt="...">
-                    <div class="card-body">
-                        <h5 class="text-center">BAMBANG</h5>
-                      <p class="card-text text-center">guru ngaji</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 px-4">
-                <div class="card u-card">
-                    <img src="{{ asset('assets/img/siluet.png') }}" class="card-img-top mx-auto" alt="...">
-                    <div class="card-body">
-                        <h5 class="text-center">BAMBANG</h5>
-                      <p class="card-text text-center">guru ngaji</p>
-                    </div>
-                </div>
-            </div>
+        <div class="row mt-3 justify-content-center">
+            <div class="card px-4 py-2">
+                <h4 class="text-center" >Daftar Ustadzah</h4>
             
+            </div>
+        </div>
+        <div class="row mt-4">
+            @foreach($ustadzah as $item)
             <div class="col-md-3 px-4">
                 <div class="card u-card">
-                    <img src="{{ asset('assets/img/siluet.png') }}" class="card-img-top mx-auto" alt="...">
+                    @if($item->foto != null)
+                        <img src="{{ \Storage::url($item->foto) }}" class="card-img-top mx-auto" alt="...">
+                    @else
+                        <img src="{{ asset('assets/img/siluet.png') }}" class="card-img-top mx-auto" alt="...">
+                    @endif
                     <div class="card-body">
-                        <h5 class="text-center">BAMBANG</h5>
-                      <p class="card-text text-center">guru ngaji</p>
+                        <h5 class="text-center">{{ $item->nama }}</h5>
+                      <p class="card-text text-center">{{ $item->mapel }}</p>
                     </div>
                 </div>
             </div>
-            
-            <div class="col-md-3 px-4">
-                <div class="card u-card">
-                    <img src="{{ asset('assets/img/siluet.png') }}" class="card-img-top mx-auto" alt="...">
-                    <div class="card-body">
-                        <h5 class="text-center">BAMBANG</h5>
-                      <p class="card-text text-center">guru ngaji</p>
-                    </div>
-                </div>
-            </div>
-        </div>    
-        
-
+            @endforeach
+        </div>        
 
     </div>
 </section>   

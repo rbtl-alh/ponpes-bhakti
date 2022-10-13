@@ -13,7 +13,7 @@
             <div>
                 <div class="row title d-flex justify-content-center">
                     <div class="col-7">
-                        <h2 class="jdl text-center" style="text-transform: uppercase">{{ $kategori->nama_kategori }}</h2>
+                        <h2 class="jdl text-center" style="text-transform: uppercase">all</h2>
                       </div>
                 </div>
             </div>

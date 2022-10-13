@@ -8,7 +8,16 @@
 {{-- START SECTION--}}
     <section class="banner container-fluid"> 
         <div class="row">
-            <img class="banner-img" src="{{ asset('assets/img/banner.png') }}" alt="">
+            {{-- <img class="banner-img" src="{{ asset('assets/img/banner.png') }}" alt=""> --}}
+            <div id="slider">
+                <ul id="slideWrap"> 
+                  <li><img src="{{ asset('assets/img/banner.png') }}" alt=""></li>
+                  <li><img src="{{ asset('assets/img/fotobareng.jpeg') }}" alt=""></li>
+                  <li><img src="{{ asset('assets/img/fotoustadz.png') }}" alt=""></li>                  
+                </ul>
+                <a id="prev" href="#">&#8810;</a>
+                <a id="next" href="#">&#8811;</a>
+            </div>
             <div class="banner-layer"></div>
             <div class="container">
                 <div>
@@ -24,11 +33,22 @@
                     </div>
                 </div>
             </div>
-        </div>   
+        </div> 
+        <div class="row">
+            <div class="card divider">
+                <div class="row justify-content-center arrow">
+                    <a href="#section2">
+                        <div class="field">                    
+                            <div class="scroll"></div>                    
+                        </div>                        
+                    </a>
+                </div>
+            </div>
+        </div>  
     </section>
     
-    <section class="program">
-        <div class="container mt-4">
+    <section class="program" id="section2">
+        <div class="container">
             <div class="row d-flex justify-content-center">
                 <h2 class="text-center" style="font-weight: 700; color: #1C6758;">
                     Program
@@ -157,55 +177,55 @@
                 <div class="col-md-4">
                     <div class="card" style="background-color: transparent !important; border: none;">
                         <div class="d-flex justify-content-center">
-                            <div class="card-text circle">                        
-                                <h4 class="text text-center">2022</h4>  
+                            <div class="card-text try">                        
+                                <h4 class="text text-center animation zoom-in">2022</h4>                        
                             </div>
                         </div>
-                        <p class="text-center mt-3 f-ket" style="font-size: 1.3rem;color: #EEF2E6;">Tahun Berdiri</p>                        
+                        <p class="text-center mt-3 f-ket animation zoom-in" style="font-size: 1.3rem;color: #EEF2E6;">Tahun Berdiri</p>
                     </div>
                 </div>
                 {{-- // --}}
                 <div class="col-md-4">
                     <div class="card" style="background-color: transparent !important; border: none;">
                         <div class="d-flex justify-content-center">
-                            <div class="card-text circle">                        
-                                <h4 class="text text-center">39</h4>                        
+                            <div class="card-text try">                        
+                                <h4 class="text text-center animation zoom-in">39</h4>                        
                             </div>
                         </div>
-                        <p class="text-center mt-3 f-ket" style="font-size: 1.3rem;color: #EEF2E6;">Ustadz</p>
+                        <p class="text-center mt-3 f-ket animation zoom-in" style="font-size: 1.3rem;color: #EEF2E6;">Ustadz</p>
                     </div>
                 </div>
                 {{-- // --}}
                 <div class="col-md-4">
                     <div class="card" style="background-color: transparent !important; border: none;">
                         <div class="d-flex justify-content-center">
-                            <div class="card-text circle">                        
-                                <h4 class="text text-center">17</h4>
+                            <div class="card-text try">                        
+                                <h4 class="text text-center animation zoom-in">17</h4>
                             </div>
                         </div>
-                        <p class="text-center mt-3 f-ket" style="font-size: 1.3rem;color: #EEF2E6;">Ustadzah</p>
+                        <p class="text-center mt-3 f-ket animation zoom-in" style="font-size: 1.3rem;color: #EEF2E6;">Ustadzah</p>
                     </div>
                 </div>
                 {{-- // --}}
                 <div class="col-md-4">
                     <div class="card" style="background-color: transparent !important; border: none;">
                         <div class="d-flex justify-content-center">
-                            <div class="card-text circle">                        
-                                <h4 class="text text-center">54</h4>                        
+                            <div class="card-text try">                        
+                                <h4 class="text text-center animation zoom-in">54</h4>                        
                             </div>
                         </div>
-                        <p class="text-center mt-3 f-ket" style="font-size: 1.3rem;color: #EEF2E6;">Siswa</p>
+                        <p class="text-center mt-3 f-ket animation zoom-in" style="font-size: 1.3rem;color: #EEF2E6;">Siswa</p>
                     </div>
                 </div>
                 {{-- // --}}
                 <div class="col-md-4">
                     <div class="card" style="background-color: transparent !important; border: none;">
                         <div class="d-flex justify-content-center">
-                            <div class="card-text circle">                        
-                                <h4 class="text text-center">34</h4>                        
+                            <div class="card-text try">                        
+                                <h4 class="text text-center animation zoom-in">34</h4>                        
                             </div>
                         </div>
-                        <p class="text-center mt-3 f-ket" style="font-size: 1.3rem;color: #EEF2E6;">Siswi</p>
+                        <p class="text-center mt-3 f-ket animation zoom-in" style="font-size: 1.3rem;color: #EEF2E6;">Siswi</p>
                     </div>
                 </div>
                 {{-- // --}}
@@ -215,7 +235,7 @@
 
     <section class="berita container mt-4">
         <div class="row justify-content-around">
-            <div class="col-md-3">
+            <div class="col-md-3">                
                 <div class="card">
                     <img src="{{ asset('assets/img/fotobareng.jpeg') }}" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -247,10 +267,104 @@
             </div>
         </div>
     </section>
-
-
 {{-- END SECTION--}}
 </section>
+
+<script>
+    $(document).ready(function() {
+        $(window).scroll(function(){            
+            $('.zoom-in').each(function(){        
+            var zoomIn = 1, zoomOut = 0;
+            
+            if(isScrolledIntoView($(this))){        
+                $('.try').addClass('circle');               
+                $(this).css({
+                    '-webkit-transform': 'scale(' + zoomIn + ')',
+                    'transform': 'scale(' + zoomIn + ')',
+                });
+            }
+            
+            else{
+                $('.try').removeClass('circle');
+                $(this).css({
+                    '-webkit-transform': 'scale(' + zoomOut + ')',
+                    'transform': 'scale(' + zoomOut + ')'
+                });
+            }
+        });
+
+        });
+    });
+      
+    function isScrolledIntoView(elem){
+        var $elem = $(elem);
+        var $window = $(window);
+    
+        var docViewTop = $window.scrollTop();
+        var docViewBottom = docViewTop + $window.height();
+    
+        var elemTop = $elem.offset().top;
+        var elemBottom = elemTop + $elem.height();
+    
+        return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+    }
+
+    var responsiveSlider = function() {
+
+        var slider = document.getElementById("slider");
+        var sliderWidth = slider.offsetWidth;
+        var slideList = document.getElementById("slideWrap");
+        var count = 1;
+        var items = slideList.querySelectorAll("li").length;
+        var prev = document.getElementById("prev");
+        var next = document.getElementById("next");
+
+        window.addEventListener('resize', function() {
+            sliderWidth = slider.offsetWidth;
+        });
+
+        var prevSlide = function() {
+            if(count > 1) {
+                count = count - 2;
+                slideList.style.left = "-" + count * sliderWidth + "px";
+                count++;
+            }
+            else if(count = 1) {
+                count = items - 1;
+                slideList.style.left = "-" + count * sliderWidth + "px";
+                count++;
+            }
+        };
+
+        var nextSlide = function() {
+            if(count < items) {
+                slideList.style.left = "-" + count * sliderWidth + "px";
+                count++;
+            }
+            else if(count = items) {
+                slideList.style.left = "0px";
+                count = 1;
+            }
+        };
+
+        next.addEventListener("click", function() {
+            nextSlide();
+        });
+
+        prev.addEventListener("click", function() {
+            prevSlide();
+        });
+
+        setInterval(function() {
+            nextSlide()
+        }, 5000);
+
+        };
+
+        window.onload = function() {
+            responsiveSlider();  
+        }
+  </script>
 
 
 @endsection

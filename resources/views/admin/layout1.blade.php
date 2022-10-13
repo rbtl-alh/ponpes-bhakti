@@ -139,6 +139,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   </li>
                 </ul>
               </li>
+              <li class="nav-item">
+                <a href="{{ url('/admin/siswa') }}" class="nav-link">
+                  {{-- <i class="nav-icon fas fa-th"></i> --}}                  
+                  <i class="nav-icon fas fa-user"></i>
+                  <p>
+                    Data Siswa
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ url('/admin/data-admin') }}" class="nav-link">
+                  {{-- <i class="nav-icon fas fa-th"></i> --}}                  
+                  <i class="nav-icon fas fa-user"></i>
+                  <p>
+                    Admin
+                  </p>
+                </a>
+              </li>
 
 
                <li class="nav-item">
