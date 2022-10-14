@@ -10,9 +10,30 @@ use App\Models\Photo;
 use App\Models\KategoriGaleri;
 use App\Models\Image;
 use App\Models\Post;
+use App\Models\Program;
+use App\Models\User;
 
 class UserViewController extends Controller
-{
+{    
+    public function home(){
+        return view('home',[
+            'berita' => Post::latest()->paginate(3),
+            'program' => Program::all(),
+            'siswa' => Siswa::where('jenis_kelamin', 'Laki-laki')->count(),
+            'siswi' => Siswa::where('jenis_kelamin', 'Perempuan')->count(),
+            'ustadz' => Ustadz::all()->count(),
+            'ustadzah' => Ustadzah::all()->count(),
+        ]);
+    }
+    public function dashboard(){
+        return view('admin.dashboard',[            
+            'siswa' => Siswa::count(),            
+            'ustadz' => Ustadz::all()->count(),
+            'ustadzah' => Ustadzah::all()->count(),
+            'admin' => User::all()->count(),
+        ]);
+    }
+
     public function siswa(){
         return view('data-santri',[
             'siswa' => Siswa::all(),
@@ -46,13 +67,4 @@ class UserViewController extends Controller
         ]);
     }
 
-    public function home(){
-        return view('home',[
-            'berita' => Post::latest()->paginate(3),
-            'siswa' => Siswa::where('jenis_kelamin', 'Laki-laki')->count(),
-            'siswi' => Siswa::where('jenis_kelamin', 'Perempuan')->count(),
-            'ustadz' => Ustadz::all()->count(),
-            'ustadzah' => Ustadzah::all()->count(),
-        ]);
-    }
 }

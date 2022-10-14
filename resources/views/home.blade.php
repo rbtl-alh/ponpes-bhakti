@@ -62,33 +62,17 @@
                 </div>
             </div>
             <div class="row d-flex justify-content-center">
+                @foreach($program as $item)
                 <div class="col-md-3">
-                    <div class="card p-card mt-4">
+                    <div class="card p-card mt-4" style="height: 280px">
                         <img src="{{ asset('assets/img/icon-quran.png') }}" class="card-img-top mx-auto mt-3" alt="...">
                         <div class="card-body text-center">
-                            <h5 class="card-title text-center">Program 1</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <h5 class="card-title text-center">{{ $item->nama }}</h5>
+                            <p class="card-text">{{ $item->keterangan }}</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card p-card mt-4">
-                        <img src="{{ asset('assets/img/icon-quran.png') }}" class="card-img-top mx-auto mt-3" alt="...">
-                        <div class="card-body text-center">
-                            <h5 class="card-title text-center">Program 1</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card p-card mt-4">
-                        <img src="{{ asset('assets/img/icon-quran.png') }}" class="card-img-top mx-auto mt-3" alt="...">
-                        <div class="card-body text-center">
-                            <h5 class="card-title text-center">Program 1</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
 

@@ -24,8 +24,8 @@
                   Pendidikan
                 </a>
                 <div class="dropdown-menu">
-                  <a class="dropdown-item" href="#">Sistem Pengajar dan Pendidikan</a>
-                  <a class="dropdown-item" href="#">Kurikulum</a>        
+                  <a class="dropdown-item" href="{{ url('/sistem-pengajar') }}">Sistem Pengajar dan Pendidikan</a>
+                  <a class="dropdown-item" href="{{ url('/kurikulum') }}">Kurikulum</a>        
                 </div>
               </li>
               <li class="nav-item dropdown">

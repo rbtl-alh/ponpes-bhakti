@@ -9,6 +9,7 @@ use App\Http\Controllers\UstadzController;
 use App\Http\Controllers\UstadzahController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DependantDropdownController;
+use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\UserViewController;
 use Illuminate\Support\Facades\Route;
 
@@ -39,9 +40,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/berita', [PostController::class, 'index']);
 Route::get('/berita/{post:slug}', [PostController::class, 'show']);
 
-// Route::get('/daftarustadz', function () {
-//     return view('daftar.ustadz');
-// });
+Route::get('/kurikulum', function () {
+    return view('kurikulum');
+});
+Route::get('/sistem-pengajar', function () {
+    return view('sistem-pengajar');
+});
 
 Route::get('/sejarah', function () {
     return view('sejarah.sejarah');
@@ -58,9 +62,7 @@ Route::get('/galeri/all', [UserViewController::class, 'galeriAll']);
 Route::get('/galeri/{kategoriGaleri:nama_kategori}', [UserViewController::class, 'galeri']);
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
-    Route::get('/', function(){
-        return view('admin.layout');
-    });
+    Route::get('/', [UserViewController::class, 'dashboard']);
 
     Route::resource('/galeri', KategoriController::class);    
     Route::post('/galeri/upload', [ImageController::class, 'store'])->name('admin.galeri');
@@ -94,8 +96,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('/siswa/export', [SiswaController::class, 'export'])->name('siswa.export');
     Route::post('/siswa/import', [SiswaController::class, 'import'])->name('siswa.import');
     Route::resource('/siswa', SiswaController::class);
-
+    
     Route::resource('/data-admin', AdminController::class);
+    Route::resource('/program', ProgramController::class);
 });
 
 Route::get('/coba', function(){

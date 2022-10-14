@@ -1,0 +1,78 @@
+/* dashboard */
+
+.widget-card {
+    background-color: white;
+}
+
+.hoverable {
+    cursor: pointer;
+}
+
+.widget-card:hover.hoverable {
+    background-color: #D6CDA4;
+}
+
+
+/* .widget-card-ppiu:hover{
+    background-color: #3ab50d98 !important;  
+    } */
+
+.widget-card .text-jumlah {
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 1.5px;
+    color: #0168fa;
+}
+
+.widget-card .text-nama {
+    font-weight: 600;
+}
+
+.widget-card .text-keterangan {
+    font-weight: 300;
+    font-size: 10px;
+    color: #b4bdce;
+}
+
+.widget-card .fas {
+    color: #b4bdce;
+}
+
+.widget-card.active {
+    background-color: #3ab50d !important;
+}
+
+.widget-card.active .text-jumlah,
+.widget-card:hover.hoverable .text-jumlah {
+    color: white;
+}
+
+.widget-card.active .text-nama,
+.widget-card:hover.hoverable .text-nama {
+    color: white;
+}
+
+.widget-card.active .text-keterangan,
+.widget-card:hover.hoverable .text-keterangan {
+    color: white;
+}
+
+.widget-card.active .fas,
+.widget-card:hover.hoverable .fas {
+    color: white;
+}
+
+.yess.dropdown-menu.show {
+    transform: translate3d(0px, 72px, 0px) !important;
+}
+
+.tx-spacing-1 {
+    letter-spacing: 0.5px;
+}
+
+.mg-b-10 {
+    margin-bottom: 10px;
+}
+
+/* end dashboard */
+

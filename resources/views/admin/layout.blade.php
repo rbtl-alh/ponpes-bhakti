@@ -11,6 +11,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="icon" href="{{ asset('assets/img/logo-bwh.png') }}">
   <title>Admin @yield('title')</title>
 
+  <link rel="stylesheet" href="{{ asset('assets/css/dashboard.css') }}">
+
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
@@ -126,7 +128,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+               with font-awesome or any other icon font library -->                            
+              <li class="nav-item">
+                <a href="{{ url('/admin') }}" class="nav-link">
+                  {{-- <i class="nav-icon fas fa-th"></i> --}}
+                  <i class="fa fa-home fa-lg fa-fw"></i>
+                  <p>
+                    Dashboard
+                  </p>
+                </a>
+              </li>
               <li class="nav-item">
                 <a href="{{ route('galeri.index') }}" class="nav-link">
                   {{-- <i class="nav-icon fas fa-th"></i> --}}
@@ -142,6 +153,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <i class="nav-icon fas fa-newspaper"></i>
                   <p>
                     Berita
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('program.index') }}" class="nav-link">
+                  {{-- <i class="nav-icon fas fa-th"></i> --}}                  
+                  {{-- <i class="nav-icon fas fa-newspaper"></i> --}}
+                  <i class="nav-icon fas fa-clipboard"></i>
+                  <p>
+                    Program
                   </p>
                 </a>
               </li>
@@ -171,7 +192,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <li class="nav-item">
                 <a href="{{ url('/admin/siswa') }}" class="nav-link">
                   {{-- <i class="nav-icon fas fa-th"></i> --}}                  
-                  <i class="nav-icon fas fa-user"></i>
+                  <i class="nav-icon fas fa-users fa-fw fa-3x"></i>
                   <p>
                     Data Siswa
                   </p>
@@ -180,9 +201,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <li class="nav-item">
                 <a href="{{ url('/admin/data-admin') }}" class="nav-link">
                   {{-- <i class="nav-icon fas fa-th"></i> --}}                  
-                  <i class="nav-icon fas fa-user"></i>
+                  <i class="nav-icon fas fa-user-tie fa-fw fa-3x "></i>
                   <p>
-                    Admin
+                    Data Admin
                   </p>
                 </a>
               </li>
