@@ -12,6 +12,7 @@ use App\Models\Image;
 use App\Models\Post;
 use App\Models\Program;
 use App\Models\User;
+use App\Models\File;
 
 class UserViewController extends Controller
 {    
@@ -64,6 +65,17 @@ class UserViewController extends Controller
     public function galeriAll(){
         return view('galeri.all', [
             'img' => Image::all()
+        ]);
+    }
+
+    public function kurikulum(){
+        return view('kurikulum',[
+            'file' => File::where('ket', 'kurikulum')->paginate(1),
+        ]);
+    }
+    public function sistem(){
+        return view('sistem-pengajar',[
+            'file' => File::where('ket', 'sistem')->paginate(1),
         ]);
     }
 

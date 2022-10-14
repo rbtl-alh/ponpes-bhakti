@@ -9,6 +9,7 @@ use App\Http\Controllers\UstadzController;
 use App\Http\Controllers\UstadzahController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DependantDropdownController;
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\UserViewController;
 use Illuminate\Support\Facades\Route;
@@ -40,12 +41,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/berita', [PostController::class, 'index']);
 Route::get('/berita/{post:slug}', [PostController::class, 'show']);
 
-Route::get('/kurikulum', function () {
-    return view('kurikulum');
-});
-Route::get('/sistem-pengajar', function () {
-    return view('sistem-pengajar');
-});
+Route::get('/kurikulum', [UserViewController::class, 'kurikulum']);
+Route::get('/sistem-pengajar', [UserViewController::class, 'sistem']);
 
 Route::get('/sejarah', function () {
     return view('sejarah.sejarah');
@@ -99,6 +96,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     
     Route::resource('/data-admin', AdminController::class);
     Route::resource('/program', ProgramController::class);
+
+    Route::get('/kurikulum', [FileController::class, 'kurikulum']);
+    Route::get('/sistem-pengajar', [FileController::class, 'sistem']);
+    Route::post('/upload-pdf', [FileController::class, 'store'])->name('file.upload');
+    Route::delete('/upload-pdf/{id}', [FileController::class, 'destroy'])->name('file.destroy');
 });
 
 Route::get('/coba', function(){

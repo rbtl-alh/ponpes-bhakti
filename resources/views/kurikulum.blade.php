@@ -25,10 +25,12 @@
 
 <section class="container berita" id="berita">
 {{-- start content --}}
+@foreach($file as $item)
     <div class="row justify-content-center mt-5">
-        <iframe height="600" width="727" src="{{ asset('assets/coba-pdf.pdf#toolbar=0') }}" frameborder="0"></iframe>
+        <iframe height="600" width="727" src="{{ Storage::url($item->file) }}#toolbar=0" frameborder="0"></iframe>
     </div>
-{{-- end content --}}      
+{{-- end content --}}   
+@endforeach       
 </section>
 
 <script>

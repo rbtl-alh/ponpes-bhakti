@@ -170,6 +170,29 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <a href="#" class="nav-link">                  
                   <i class="nav-icon fas fa-user"></i>
                   <p>
+                    Upload File
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{ url('/admin/kurikulum') }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Kurikulum</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{ url('/admin/sistem-pengajar') }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Sistem Pengajar dan Pendidikan</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">                  
+                  <i class="nav-icon fas fa-user"></i>
+                  <p>
                     Ustadz & Ustadzah
                     <i class="fas fa-angle-left right"></i>
                   </p>
