@@ -1,16 +1,7 @@
 @extends('layouts.main')
 <link rel="stylesheet" href="{{ asset('assets/css/berita.css') }}" type="text/css">
 
-<style>
-  .active{
-    background-color: rgba(214, 205, 164) !important;
-    color: rgba(61,131,97) !important;
-  }
-  .tab{
-    color: rgba(61,131,97) !important;
-    font-weight: bolder;
-  }
-</style>
+@section('title', 'Berita')
 
 @section('content')
 <section class="banner container-fluid"> 

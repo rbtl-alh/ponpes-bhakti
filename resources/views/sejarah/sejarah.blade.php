@@ -2,6 +2,8 @@
 
 <link rel="stylesheet" href="{{ asset('assets/css/sejarah.css') }}" type="text/css">
 
+@section('title', 'Sejarah')
+
 @section('content')
 
 <section class="banner container-fluid"> 

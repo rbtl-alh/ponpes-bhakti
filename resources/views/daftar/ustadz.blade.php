@@ -1,6 +1,9 @@
 @extends('layouts.main')
 
 <link rel="stylesheet" href="{{ asset('assets/css/daftar.css') }}" type="text/css">
+
+@section('title', 'Ustadz Ustadzah')
+
 @section('content')
 <section class="banner container-fluid"> 
     <div class="row">

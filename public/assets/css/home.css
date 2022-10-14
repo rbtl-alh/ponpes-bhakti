@@ -18,12 +18,34 @@ section{
     /* z-index: 1; */
 }
 
+@keyframes slideInLeft {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  /* .text-banner {
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0s;
+    animation-iteration-count: 2;
+    animation-name: slideInLeft;        
+  } */
+
 .title{
     /* position: relative; */
     margin-top: -33%;
     padding-left: 1rem;
     color: #EEF2E6;
     margin-bottom: 1rem;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-name: slideInLeft;        
 }
 
 .jdl{
@@ -34,6 +56,11 @@ section{
 .ket{
     padding-left: 1rem;
     color: #EEF2E6;
+    animation-duration: 2.5s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-name: slideInLeft;  
 }
 
 .ket-text{

@@ -2,6 +2,8 @@
 
 <link rel="stylesheet" href="{{ asset('assets/css/berita.css') }}" type="text/css">
 
+@section('title', 'Data Santri')
+
 @section('content')
 <section class="banner container-fluid"> 
     <div class="row">

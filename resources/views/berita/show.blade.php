@@ -3,6 +3,8 @@
 
 <link rel="stylesheet" href="{{ asset('assets/css/berita.css') }}" type="text/css">
 
+@section('title', 'Berita')
+
 @section('content')
 
 <section class="container pt-5">     

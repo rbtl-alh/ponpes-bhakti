@@ -2,6 +2,8 @@
 
 <link rel="stylesheet" href="{{ asset('assets/css/galeri.css') }}">
 
+@section('title', 'Galeri')
+
 @section('content')
 <section class="banner container-fluid"> 
     <div class="row">

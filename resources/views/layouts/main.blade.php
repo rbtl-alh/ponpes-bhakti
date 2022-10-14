@@ -17,6 +17,9 @@
     {{-- fontawesome --}}
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+    <link rel="icon" href="{{ asset('assets/img/logo-bwh.png') }}">
+    <title>@yield('title') | PONPES Bhakti Bapak Emak</title>
     
 </head>
 <body>      

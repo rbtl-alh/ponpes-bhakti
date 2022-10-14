@@ -2,6 +2,8 @@
 
 <link rel="stylesheet" href="{{ asset('assets/css/home.css') }}" type="text/css">
 
+@section('title', 'Home')
+
 @section('content')
 
 <section>
@@ -20,7 +22,7 @@
             </div>
             <div class="banner-layer"></div>
             <div class="container">
-                <div>
+                <div class="text-banner">
                     <div class="row title">
                         <div class="col-lg-5 col-md-7">
                             <h2 class="jdl">Pondok Pesantren Bhakti Bapak Emak</h2>

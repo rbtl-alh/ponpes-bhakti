@@ -4,6 +4,8 @@
 <link rel="stylesheet" href="{{ asset('assets/lightbox2/dist/css/lightbox.min.css') }}">
 {{-- <link rel="stylesheet" href="{{ asset('assets/css/galeri1.scss') }}"> --}}
 
+@section('title', 'Galeri')
+
 @section('content')
 <section class="banner container-fluid"> 
     <div class="row">

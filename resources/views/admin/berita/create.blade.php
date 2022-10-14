@@ -2,6 +2,8 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
+@section('title', '| Tambah Berita')
+
 @section('content')
 <div class="container-fluid">
     <div class="row pt-4">

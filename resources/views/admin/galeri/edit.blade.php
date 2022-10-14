@@ -1,5 +1,7 @@
 @extends('admin.layout')
 
+@section('title', '| Edit Kategori Galeri')
+
 @section('content')
 
 <div class="container-fluid">

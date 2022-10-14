@@ -2,6 +2,8 @@
 
 <link rel="stylesheet" href="{{ asset('assets/css/visimisi.css') }}">
 
+@section('title', 'Visi Misi')
+
 @section('content')
 <section class="banner container-fluid"> 
     <div class="row">

@@ -14,7 +14,7 @@
                 <div class="dropdown-menu">
                   <a class="dropdown-item" href="#">Struktur Organisasi</a>
                   <a class="dropdown-item" href="{{ url('/sejarah') }}">Sejarah</a>                  
-                  <a class="dropdown-item" href="{{ url('/visimisi') }}">Visi Misi</a>
+                  <a class="dropdown-item" href="{{ url('/visi-misi') }}">Visi Misi</a>
                   <a class="dropdown-item" href="{{ url('/data-ustadz') }}">Daftar Ustadz</a>                  
                   <a class="dropdown-item" href="#">Unit</a>
                 </div>
