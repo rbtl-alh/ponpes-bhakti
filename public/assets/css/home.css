@@ -494,14 +494,14 @@ html, body {
     border-radius: 100%;
     background-color: transparent;
     transform: rotate3d(0, 0, 1, 0deg);
-    animation: 1s spin2 linear 1s forwards;
+    animation: 0.45s spin2 linear 0.45s forwards;
     z-index: 2;
   }
   .circle:after {
     content: " ";
     background: transparent;
     z-index: 1;
-    animation: 1s spin linear forwards;
+    animation: 0.45s spin linear forwards;
   }
   /* border: 5px solid #D6CDA4; */
   @keyframes spin {
