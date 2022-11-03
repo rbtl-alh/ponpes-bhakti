@@ -38,7 +38,9 @@
             <div class="col-md-8">
                 <div class="card v-card">
                     <div class="card-body text-center">
-                      <p>Menjadi Kawah condro dimuko generasi muslim yang manusiawi, cerdas dalam hidup, serta professional sebagai makhluk.</p>
+                        @foreach($visi as $visi)
+                      <p>{!! $visi->visi !!}</p>
+                      @endforeach
                     </div>
                 </div>
             </div>
@@ -63,14 +65,16 @@
             </div>
         </div>
         <div class="row d-flex justify-content-center">
+            @foreach($misi as $misi)
             <div class="col-md-4 mb-4">
                 <div class="card m-card mx-3">                
                     <div class="card-body text-center">
-                      <p class="mt-4">Membina budaya kesalihan ( kesalihan individu dan kesalihan social ) di kalangan santri dan masyarakat.</p>
+                      <p class="mt-4">{{ $misi->misi }}</p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            @endforeach
+            {{-- <div class="col-md-4">
                 <div class="card m-card mx-3">
                     <div class="card-body text-center">
                       <p class="mt-4">Mengembangkan dan melestarikan ilmu-ilmu agama Islam yang tertuang dalam kitab-kitab kuning dan litelatur-litelatur modern.</p>
@@ -83,7 +87,7 @@
                       <p class="mt-4">Menyelenggarakan kegiatan KBM sesuai dengan SOP yang telah disepakati bersama.</p>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 

@@ -8,7 +8,7 @@
       <div class="col">
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title pt-2">Galeri {{ $itemkategori->nama_kategori }}</h3>
+            <h3 class="card-title pt-2">Album {{ $itemkategori->nama_kategori }}</h3>
             <div class="card-tools">
               <a href="{{ route('galeri.index') }}" class="btn btn-sm btn-danger">
                 Kembali

@@ -10,10 +10,10 @@
       <div class="col">
         <div class="card">
           <div class="card-header">
-            <h4 class="card-title">Kategori Galeri</h4>
+            <h4 class="card-title">Galeri</h4>
             <div class="card-tools">
               <a href="{{ route('galeri.create') }}" class="btn btn-sm btn-primary">
-                Tambah Kategori
+                Tambah Album
               </a>
             </div>
           </div>
@@ -33,7 +33,7 @@
                 <thead>
                   <tr>
                     <th width="50px">No</th>
-                    <th>Nama Kategori</th>                    
+                    <th>Nama Album</th>                    
                     <th>Jumlah Gambar</th>                    
                     <th>Action</th>
                   </tr>
@@ -52,7 +52,7 @@
                     </td>
                     <td>
                         <a href="{{ route('galeri.show', $kategori->id) }}" class="btn btn-sm btn-success mr-2 mb-2">
-                            Tampilkan Galeri
+                            Tampilkan Album
                         </a>
                         <a href="{{ route('galeri.edit', $kategori->id) }}" class="btn btn-sm btn-primary mr-2 mb-2">
                             Edit

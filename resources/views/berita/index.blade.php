@@ -20,9 +20,6 @@
                 <div class="row d-flex justify-content-center">
                   <div class="col-6">
                     <form action="/berita">
-                      @if(request('category'))
-                      <input type="hidden" class="form-control" name="category" value="{{ request('category') }}">
-                      @endif
                       <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="cari berita..." name="search" value="{{ request('search') }}">
                         <div class="input-group-append">
@@ -52,7 +49,7 @@
             <div class="col-md-8">
               <div class="card-body">
                   <div class="d-flex justify-content-end">
-                      <p class="card-text mb-2"><small class="text-muted">{{ $post['published_at'] }}</small></p>
+                      <p class="card-text mb-2"><small class="text-muted">{{ date("Y-m-d", strtotime($post->published_at)) }}</small></p>
                   </div>
                 <h5 class="card-title">{{ $post["title"] }}</h5>
                 <p class="card-text" style="color: #777973">
@@ -67,9 +64,7 @@
         </div>
   </div>   
 @endforeach
-  {{-- end content --}}
-  
-    
+  {{-- end content --}}    
   {{ $posts->links() }}
 </section>
 

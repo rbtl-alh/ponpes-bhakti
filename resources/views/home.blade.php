@@ -30,7 +30,9 @@
                     </div>
                     <div class="row ket">
                         <div class="col-lg-7 col-md-9">
-                            <p class="ket-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias unde ullam iure quam officiis voluptas natus enim magnam possimus a, exercitationem in nesciunt dignissimos ipsa ad nostrum, cupiditate corrupti, animi quae nam dolores. Veritatis, dolore.</p>
+                            @foreach($desk as $d)
+                            <p class="ket-text">{!! $d->deskripsi !!}</p>
+                            @endforeach
                         </div>
                     </div>
                 </div>

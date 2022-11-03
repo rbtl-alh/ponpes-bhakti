@@ -9,7 +9,7 @@
       <div class="col col-lg-6 col-md-6">
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">Form Kategori</h3>
+            <h3 class="card-title">Form Album</h3>
             <div class="card-tools">
               <a href="{{ route('galeri.index') }}" class="btn btn-sm btn-danger">
                 Tutup
@@ -35,7 +35,7 @@
             <form action="{{ route('galeri.store') }}" method='POST'>
             @csrf
               <div class="form-group">
-                <label for="nama_kategori">Nama Kategori</label>
+                <label for="nama_kategori">Nama Album</label>
                 <input type="text" name="nama_kategori" id="nama_kategori" class="form-control">
               </div>
               <div class="form-group">

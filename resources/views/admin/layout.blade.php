@@ -222,6 +222,29 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
               </li>
               <li class="nav-item">
+                <a href="#" class="nav-link">                  
+                  <i class="nav-icon fas fa-user"></i>
+                  <p>
+                    Data Profil
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{ url('/admin/deskripsi') }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Deskripsi</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{ url('/admin/visimisi') }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Visi Misi</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
                 <a href="{{ url('/admin/data-admin') }}" class="nav-link">
                   {{-- <i class="nav-icon fas fa-th"></i> --}}                  
                   <i class="nav-icon fas fa-user-tie fa-fw fa-3x "></i>

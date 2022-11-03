@@ -34,13 +34,14 @@ Route::get('/berita/{post:slug}', [PostController::class, 'show']);
 
 Route::get('/kurikulum', [UserViewController::class, 'kurikulum']);
 Route::get('/sistem-pengajar', [UserViewController::class, 'sistem']);
+Route::get('/visi-misi', [UserViewController::class, 'visimisi']);
 
 Route::get('/sejarah', function () {
     return view('sejarah.sejarah');
 });
-Route::get('/visi-misi', function () {
-    return view('visimisi');
-});
+// Route::get('/visi-misi', function () {
+//     return view('visimisi');
+// });
 
 Route::get('/', [UserViewController::class, 'home']);
 Route::get('/data-santri', [UserViewController::class, 'siswa']);
@@ -96,7 +97,16 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('/deskripsi', [ProfilController::class, 'desk'])->name('profil.deskripsi');
     Route::get('/deskripsi/{deskripsi:id}/edit', [ProfilController::class, 'editDesk']);
     Route::put('/deksripsi/{id}', [ProfilController::class, 'updateDesk'])->name('desk.update');
+    Route::get('/visimisi', [ProfilController::class, 'visi'])->name('profil.visimisi');
+    Route::get('/visi/{visi:id}/edit', [ProfilController::class, 'editVisi']);
+    Route::put('/visi/{id}', [ProfilController::class, 'updateVisi'])->name('visi.update');
+    Route::get('/misi/{misi:id}/edit', [ProfilController::class, 'editMisi']);
+    Route::put('/misi/{id}', [ProfilController::class, 'updateMisi'])->name('misi.update');
+    Route::get('/misi/create', [ProfilController::class, 'createMisi'])->name('misi.create');
+    Route::post('/misi', [ProfilController::class, 'storeMisi'])->name('misi.store');  
+    Route::delete('/misi/{id}', [ProfilController::class, 'destroyMisi'])->name('misi.destroy');  
 });
+
 
 Route::get('/coba', function(){
     return view('admin.siswa.coba');

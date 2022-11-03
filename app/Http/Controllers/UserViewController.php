@@ -14,6 +14,8 @@ use App\Models\Program;
 use App\Models\User;
 use App\Models\File;
 use App\Models\Deskripsi;
+use App\Models\Visi;
+use App\Models\Misi;
 
 class UserViewController extends Controller
 {    
@@ -78,6 +80,13 @@ class UserViewController extends Controller
     public function sistem(){
         return view('sistem-pengajar',[
             'file' => File::where('ket', 'sistem')->paginate(1),
+        ]);
+    }
+
+    public function visimisi(){
+        return view('visimisi',[
+            'visi' => Visi::all(),
+            'misi' => Misi::all(),
         ]);
     }
 
