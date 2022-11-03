@@ -10,6 +10,7 @@ use App\Http\Controllers\UstadzahController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DependantDropdownController;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\UserViewController;
 use Illuminate\Support\Facades\Route;
@@ -26,16 +27,6 @@ use Illuminate\Support\Facades\Route;
 */
 // Route::get('/', function () {
 //     return view('home');
-// });
-
-// Route::get('/kategori-berita', [PostCategoryController::class, 'index']);
-// Route::get('/kategori-berita/{category:slug}', [PostCategoryController::class, 'show']);
-// Route::get('/kategori-berita/{category:slug}', function(PostCategory $category){
-//     return view('berita.index',[
-//         'title' => $category->nama,
-//         'posts' => $category->posts,
-//         'category' => $category->nama
-//     ]);
 // });
 
 Route::get('/berita', [PostController::class, 'index']);
@@ -101,6 +92,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('/sistem-pengajar', [FileController::class, 'sistem']);
     Route::post('/upload-pdf', [FileController::class, 'store'])->name('file.upload');
     Route::delete('/upload-pdf/{id}', [FileController::class, 'destroy'])->name('file.destroy');
+
+    Route::get('/deskripsi', [ProfilController::class, 'desk'])->name('profil.deskripsi');
+    Route::get('/deskripsi/{deskripsi:id}/edit', [ProfilController::class, 'editDesk']);
+    Route::put('/deksripsi/{id}', [ProfilController::class, 'updateDesk'])->name('desk.update');
 });
 
 Route::get('/coba', function(){

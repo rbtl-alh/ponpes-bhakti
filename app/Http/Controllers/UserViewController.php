@@ -13,6 +13,7 @@ use App\Models\Post;
 use App\Models\Program;
 use App\Models\User;
 use App\Models\File;
+use App\Models\Deskripsi;
 
 class UserViewController extends Controller
 {    
@@ -20,6 +21,7 @@ class UserViewController extends Controller
         return view('home',[
             'berita' => Post::latest()->paginate(3),
             'program' => Program::all(),
+            'desk' => Deskripsi::all(),
             'siswa' => Siswa::where('jenis_kelamin', 'Laki-laki')->count(),
             'siswi' => Siswa::where('jenis_kelamin', 'Perempuan')->count(),
             'ustadz' => Ustadz::all()->count(),
@@ -47,7 +49,7 @@ class UserViewController extends Controller
             'ustadzah' => Ustadzah::all(),
             'img' => Photo::all(),
         ]);
-    }
+    } 
 
     public function kategori(){
         return view('galeri.galeri', [
